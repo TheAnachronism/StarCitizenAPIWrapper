@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json.Linq;
 using StarCitizenAPIWrapper.Library.Helpers;
+using StarCitizenAPIWrapper.Library.Services;
 using StarCitizenAPIWrapper.Models.Organization;
 using StarCitizenAPIWrapper.Models.Organization.Implementations;
 using StarCitizenAPIWrapper.Models.Organization.Members;
@@ -33,7 +34,93 @@ namespace StarCitizenAPIWrapper.Library
     /// <summary>
     /// Client to connect to the Star Citizen API.
     /// </summary>
-    public class StarCitizenClient
+    public interface IStarCitizenClient
+    {
+        /// <summary>
+        /// Sends an API request for user information.
+        /// </summary>
+        /// <param name="handle">The handle of the requested user.</param>
+        /// <returns>An instance of <see cref="IUser"/> containing the information about the requested user.</returns>
+        public Task<IUser> GetUser(string handle);
+
+        /// <summary>
+        /// Sends an API request for organization information.
+        /// </summary>
+        /// <param name="sid">The SID of the organization</param>
+        public Task<IOrganization> GetOrganization(string sid);
+
+        /// <summary>
+        /// Sends an API request for members of an organization.
+        /// </summary>
+        /// <param name="sid">The SID of the organization.</param>
+        public Task<List<IOrganizationMember>> GetOrganizationMembers(string sid);
+
+        /// <summary>
+        /// Sends an API request for current existing versions.
+        /// </summary>
+        /// <returns></returns>
+        public Task<IVersion> GetVersions();
+
+        /// <summary>
+        /// Sends an API request for the ships within the specified parameters.
+        /// </summary>
+        public Task<List<IShip>> GetShips(ShipRequest request);
+
+        /// <summary>
+        /// Sends an API request for the roadmap of the given type.
+        /// </summary>
+        public Task<List<RoadMap>> GetRoadmap(RoadmapTypes roadmapType, string version);
+
+        /// <summary>
+        /// Sends an API request for the current star citizen stats.
+        /// </summary>
+        /// <returns></returns>
+        public Task<StarCitizenStats> GetStats();
+
+        /// <summary>
+        /// Sends an API request for all star systems;
+        /// </summary>
+        public Task<List<IStarmapSystem>> GetAllSystems();
+
+        /// <summary>
+        /// Sends an API request for the star system information with the given name.
+        /// </summary>
+        public Task<List<IStarmapSystem>> GetSystem(string name);
+
+        /// <summary>
+        /// Gets the tunnel with the given id or all tunnels.
+        /// </summary>
+        public Task<List<StarmapTunnel>> GetTunnels(string id = "");
+
+        /// <summary>
+        /// Gets the information of the species from the API.
+        /// </summary>
+        /// <param name="name">The name if a specific one is requested.</param>
+        public Task<List<StarCitizenSpecies>> GetSpecies(string name = "");
+
+        /// <summary>
+        /// Gets the information of the affiliations from the API.
+        /// </summary>
+        public Task<List<StarCitizenAffiliation>> GetAffiliations(string name = "");
+
+        /// <summary>
+        /// Gets the information from the API of the given object code.
+        /// </summary>
+        public Task<StarCitizenStarMapObject> GetObject(string code);
+
+        /// <summary>
+        /// Gets the information from the API of the given system code.
+        /// </summary>
+        public Task<StarmapSystemDetail> GetStarmapSystem(string code);
+
+        /// <summary>
+        /// Gets a specific starmap object with the given name.
+        /// </summary>
+        public Task<StarmapSearchResult> GetStarmapObjectFromName(string name);
+
+    }
+
+    class StarCitizenClient : IStarCitizenClient
     {
         #region const variables
 
@@ -43,18 +130,10 @@ namespace StarCitizenAPIWrapper.Library
 
         #endregion
 
-        #region Static Instances
-
-        /// <summary>
-        /// The current <see cref="StarCitizenClient"/> instance.
-        /// </summary>
-        private static StarCitizenClient _currentClient;
-
-        #endregion
-
         #region private fields
 
         private readonly string _apiKey;
+        private readonly IHttpClientService _httpService;
 
         #endregion
 
@@ -63,43 +142,22 @@ namespace StarCitizenAPIWrapper.Library
         /// <summary>
         /// Initializes a new instance of <see cref="StarCitizenClient"/>.
         /// </summary>
-        /// <param name="apiKey"></param>
-        private StarCitizenClient(string apiKey)
+        public StarCitizenClient(IConfiguration config, IHttpClientService httpService)
         {
-            _apiKey = apiKey;
-        }
+            if (config is null || string.IsNullOrEmpty(config.GetSection("ApiKey").Value)) 
+                throw new ArgumentNullException(nameof(config));
 
-        #endregion
-
-        #region static Methods
-
-        /// <summary>
-        /// Gives the current <see cref="StarCitizenClient"/>.
-        /// Creates one if there isn't a current instance.
-        /// </summary>
-        public static StarCitizenClient GetClient(string apiKey)
-        {
-            return _currentClient ??= new StarCitizenClient(apiKey);
+            _apiKey = config.GetSection("ApiKey").Value;
+            _httpService = httpService ?? throw new ArgumentNullException(nameof(httpService));
         }
 
         #endregion
 
         #region public methods
-
-        /// <summary>
-        /// Sends an API request for user information.
-        /// </summary>
-        /// <param name="handle">The handle of the requested user.</param>
-        /// <returns>An instance of <see cref="IUser"/> containing the information about the requested user.</returns>
         public async Task<IUser> GetUser(string handle)
         {
             var requestUrl = string.Format(ApiRequestUrl, _apiKey, $"user/{handle}");
-            using var client = new HttpClient();
-            var response = await client.GetAsync(requestUrl);
-            if (!response.IsSuccessStatusCode)
-                throw new Exception(response.ReasonPhrase);
-
-            var content = await response.Content.ReadAsStringAsync();
+            var content = await _httpService.Get(requestUrl);
 
             var data = JObject.Parse(content);
             var profileData = data["data"]?["profile"];
@@ -114,19 +172,10 @@ namespace StarCitizenAPIWrapper.Library
             return user;
         }
 
-        /// <summary>
-        /// Sends an API request for organization information.
-        /// </summary>
-        /// <param name="sid">The SID of the organization</param>
         public async Task<IOrganization> GetOrganization(string sid)
         {
             var requestUrl = string.Format(ApiRequestUrl, _apiKey, $"organization/{sid}");
-            using var client = new HttpClient();
-            var response = await client.GetAsync(requestUrl);
-            if (!response.IsSuccessStatusCode)
-                throw new Exception(response.ReasonPhrase);
-
-            var content = await response.Content.ReadAsStringAsync();
+            var content = await _httpService.Get(requestUrl);
 
             var data = JObject.Parse(content)["data"];
 
@@ -178,19 +227,11 @@ namespace StarCitizenAPIWrapper.Library
             return org;
         }
 
-        /// <summary>
-        /// Sends an API request for members of an organization.
-        /// </summary>
-        /// <param name="sid">The SID of the organization.</param>
         public async Task<List<IOrganizationMember>> GetOrganizationMembers(string sid)
         {
             var requestUrl = string.Format(ApiLiveRequestUrl, _apiKey, $"organization_members/{sid}");
-            using var client = new HttpClient();
-            var response = await client.GetAsync(requestUrl);
-            if (!response.IsSuccessStatusCode)
-                throw new Exception(response.ReasonPhrase);
+            var content = await _httpService.Get(requestUrl);
 
-            var content = await response.Content.ReadAsStringAsync();
             var data = JObject.Parse(content)["data"];
 
             var customParseBehaviour = new Dictionary<string, Func<JToken, object>>
@@ -213,19 +254,11 @@ namespace StarCitizenAPIWrapper.Library
                         customParseBehaviour)).Cast<IOrganizationMember>().ToList();
         }
 
-        /// <summary>
-        /// Sends an API request for current existing versions.
-        /// </summary>
-        /// <returns></returns>
         public async Task<IVersion> GetVersions()
         {
             var requestUrl = string.Format(ApiRequestUrl, _apiKey, "versions");
-            using var client = new HttpClient();
-            var response = await client.GetAsync(requestUrl);
-            if (!response.IsSuccessStatusCode)
-                throw new Exception(response.ReasonPhrase);
+            var content = await _httpService.Get(requestUrl);
 
-            var content = await response.Content.ReadAsStringAsync();
             var data = JObject.Parse(content)["data"];
 
             var version = new StarCitizenVersion {Versions = ((JArray) data)!.Select(x => x.ToString()).ToArray()};
@@ -233,18 +266,11 @@ namespace StarCitizenAPIWrapper.Library
             return version;
         }
 
-        /// <summary>
-        /// Sends an API request for the ships within the specified parameters.
-        /// </summary>
         public async Task<List<IShip>> GetShips(ShipRequest request)
         {
             var requestUrl = string.Format(ApiCacheRequestUrl, _apiKey, $"/ships?{string.Join("&", request.RequestParameters)}");
-            using var client = new HttpClient();
-            var response = await client.GetAsync(requestUrl);
-            if(!response.IsSuccessStatusCode)
-                throw new Exception(response.ReasonPhrase);
+            var content = await _httpService.Get(requestUrl);
 
-            var content = await response.Content.ReadAsStringAsync();
             var data = JObject.Parse(content)["data"];
 
             var customParseBehaviour = new Dictionary<string, Func<JToken, object>>
@@ -303,18 +329,11 @@ namespace StarCitizenAPIWrapper.Library
             return ships;
         }
 
-        /// <summary>
-        /// Sends an API request for the roadmap of the given type.
-        /// </summary>
         public async Task<List<RoadMap>> GetRoadmap(RoadmapTypes roadmapType, string version)
         {
             var requestUrl = string.Format(ApiRequestUrl, _apiKey, $"roadmap/{roadmapType.ToString().ToLower()}?version={version}");
-            using var client = new HttpClient();
-            var response = await client.GetAsync(requestUrl);
-            if(!response.IsSuccessStatusCode)
-                throw new Exception(response.ReasonPhrase);
+            var content = await _httpService.Get(requestUrl);
 
-            var content = await response.Content.ReadAsStringAsync();
             var data = JObject.Parse(content)["data"] as JArray;
 
             var customParseBehaviour = new Dictionary<string, Func<JToken, object>>
@@ -333,19 +352,10 @@ namespace StarCitizenAPIWrapper.Library
                 .ToList();
         }
 
-        /// <summary>
-        /// Sends an API request for the current star citizen stats.
-        /// </summary>
-        /// <returns></returns>
         public async Task<StarCitizenStats> GetStats()
         {
             var requestUrl = string.Format(ApiRequestUrl, _apiKey, "stats");
-            using var client = new HttpClient();
-            var response = await client.GetAsync(requestUrl);
-            if (!response.IsSuccessStatusCode)
-                throw new Exception(response.ReasonPhrase);
-
-            var content = await response.Content.ReadAsStringAsync();
+            var content = await _httpService.Get(requestUrl);
 
             var data = JObject.Parse(content)["data"];
 
@@ -359,37 +369,24 @@ namespace StarCitizenAPIWrapper.Library
             return stats;
         }
 
-        /// <summary>
-        /// Sends an API request for all star systems;
-        /// </summary>
         public async Task<List<IStarmapSystem>> GetAllSystems()
         {
             var requestUrl = string.Format(ApiRequestUrl, _apiKey, "starmap/systems");
             return await GetSystems(requestUrl);
         }
 
-        /// <summary>
-        /// Sends an API request for the star system information with the given name.
-        /// </summary>
         public async Task<List<IStarmapSystem>> GetSystem(string name)
         {
             var requestUrl = string.Format(ApiRequestUrl, _apiKey, $"starmap/systems?name={name}");
             return await GetSystems(requestUrl);
         }
 
-        /// <summary>
-        /// Gets the tunnel with the given id or all tunnels.
-        /// </summary>
         public async Task<List<StarmapTunnel>> GetTunnels(string id = "")
         {
             var requestUrl = string.Format(ApiRequestUrl, _apiKey,
                 string.IsNullOrEmpty(id) ? "starmap/tunnels" : $"starmap/tunnels?id={id}");
-            using var client = new HttpClient();
-            var response = await client.GetAsync(requestUrl);
-            if (!response.IsSuccessStatusCode)
-                throw new Exception(response.ReasonPhrase);
+            var content = await _httpService.Get(requestUrl);
 
-            var content = await response.Content.ReadAsStringAsync();
             var data = JObject.Parse(content)["data"];
 
             var tunnelList = new List<StarmapTunnel>();
@@ -402,23 +399,14 @@ namespace StarCitizenAPIWrapper.Library
             return tunnelList;
         }
 
-        /// <summary>
-        /// Gets the information of the species from the API.
-        /// </summary>
-        /// <param name="name">The name if a specific one is requested.</param>
         public async Task<List<StarCitizenSpecies>> GetSpecies(string name = "")
         {
             var requestUrl = string.Format(ApiRequestUrl, _apiKey, 
                 string.IsNullOrEmpty(name) 
                     ? "starmap/species"
                     : $"starmap/species?name={name}");
+            var content = await _httpService.Get(requestUrl);
 
-            using var client = new HttpClient();
-            var response = await client.GetAsync(requestUrl);
-            if (!response.IsSuccessStatusCode)
-                throw new Exception(response.ReasonPhrase);
-
-            var content = await response.Content.ReadAsStringAsync();
             var data = JObject.Parse(content)["data"];
 
             var speciesList = new List<StarCitizenSpecies>();
@@ -443,21 +431,14 @@ namespace StarCitizenAPIWrapper.Library
             return speciesList;
         }
 
-        /// <summary>
-        /// Gets the information of the affiliations from the API.
-        /// </summary>
         public async Task<List<StarCitizenAffiliation>> GetAffiliations(string name = "")
         {
             var requestUrl = string.Format(ApiRequestUrl, _apiKey,
                 string.IsNullOrEmpty(name)
                     ? "starmap/affiliations"
                     : $"starmap/affiliations?name={name}");
-            using var client = new HttpClient();
-            var response = await client.GetAsync(requestUrl);
-            if (!response.IsSuccessStatusCode)
-                throw new Exception(response.ReasonPhrase);
+            var content = await _httpService.Get(requestUrl);
 
-            var content = await response.Content.ReadAsStringAsync();
             var data = JObject.Parse(content)["data"];
 
             var affiliations = new List<StarCitizenAffiliation>();
@@ -482,33 +463,21 @@ namespace StarCitizenAPIWrapper.Library
             return affiliations;
         }
 
-        /// <summary>
-        /// Gets the information from the API of the given object code.
-        /// </summary>
         public async Task<StarCitizenStarMapObject> GetObject(string code)
         {
             var requestUrl = string.Format(ApiRequestUrl, _apiKey, $"starmap/object?code={code}");
-            using var client = new HttpClient();
-            var response = await client.GetAsync(requestUrl);
-            response.EnsureSuccessStatusCode();
+            var content = await _httpService.Get(requestUrl);
 
-            var content = await response.Content.ReadAsStringAsync();
             var data = JObject.Parse(content)["data"];
 
             return string.IsNullOrEmpty(data?.ToString()) ? null : ParseStarCitizenStarMapObject(data);
         }
 
-        /// <summary>
-        /// Gets the information from the API of the given system code.
-        /// </summary>
         public async Task<StarmapSystemDetail> GetStarmapSystem(string code)
         {
             var requestUrl = string.Format(ApiRequestUrl, _apiKey, $"starmap/star-system?code={code}");
-            using var client = new HttpClient();
-            var response = await client.GetAsync(requestUrl);
-            response.EnsureSuccessStatusCode();
+            var content = await _httpService.Get(requestUrl);
 
-            var content = await response.Content.ReadAsStringAsync();
             var data = JObject.Parse(content)["data"];
 
             var newSystemDetail = (StarmapSystemDetail)ParseStarmapSystem<StarmapSystemDetail>(data);
@@ -522,17 +491,11 @@ namespace StarCitizenAPIWrapper.Library
             return newSystemDetail;
         }
 
-        /// <summary>
-        /// Gets a specific starmap object with the given name.
-        /// </summary>
         public async Task<StarmapSearchResult> GetStarmapObjectFromName(string name)
         {
             var requestUrl = string.Format(ApiRequestUrl, _apiKey, $"starmap/search?name={name}");
-            using var client = new HttpClient();
-            var response = await client.GetAsync(requestUrl);
-            response.EnsureSuccessStatusCode();
+            var content = await _httpService.Get(requestUrl);
 
-            var content = await response.Content.ReadAsStringAsync();
             var data = JObject.Parse(content)["data"];
 
             var searchResult =  new StarmapSearchResult();
@@ -739,14 +702,9 @@ namespace StarCitizenAPIWrapper.Library
         /// <summary>
         /// Sends an API request for the star system information with the given name.
         /// </summary>
-        private static async Task<List<IStarmapSystem>> GetSystems(string requestUrl)
+        private async Task<List<IStarmapSystem>> GetSystems(string requestUrl)
         {
-            using var client = new HttpClient();
-            var response = await client.GetAsync(requestUrl);
-            if (!response.IsSuccessStatusCode)
-                throw new Exception(response.ReasonPhrase);
-
-            var content = await response.Content.ReadAsStringAsync();
+            var content = await _httpService.Get(requestUrl);
             var data = JObject.Parse(content)["data"];
 
             var systemList = new List<IStarmapSystem>();

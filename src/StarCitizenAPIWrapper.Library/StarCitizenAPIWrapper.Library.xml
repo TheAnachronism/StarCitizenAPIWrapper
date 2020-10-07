@@ -41,6 +41,17 @@
             Otherwise gives back the value as string.
             </summary>
         </member>
+        <member name="T:StarCitizenAPIWrapper.Library.Helpers.ServiceCollectionExtension">
+            <summary>
+            Extension for the <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> to use the <see cref="T:StarCitizenAPIWrapper.Library.StarCitizenClient"/>.
+            </summary>
+        </member>
+        <member name="M:StarCitizenAPIWrapper.Library.Helpers.ServiceCollectionExtension.AddStarCitizenClient(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Adds the <see cref="T:StarCitizenAPIWrapper.Library.StarCitizenClient"/> to the service collection. This will call <see cref="T:System.Net.Http.IHttpClientFactory"/> if you have not registered the
+            service already. If you wish to add this then call Microsoft.Extensions.DependencyInjection.AddHttpClient() with your configuration before using this.
+            </summary>
+        </member>
         <member name="T:StarCitizenAPIWrapper.Library.Helpers.ShipRequest">
             <summary>
             A complete request for the api about specific ships.
@@ -130,108 +141,109 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="T:StarCitizenAPIWrapper.Library.StarCitizenClient">
+        <member name="T:StarCitizenAPIWrapper.Library.Services.IHttpClientService">
+            <summary>
+            Http client service which will handle sending http requests
+            </summary>
+        </member>
+        <member name="M:StarCitizenAPIWrapper.Library.Services.IHttpClientService.Get(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="url">URL to send request to</param>
+            <returns></returns>
+            <exception cref="T:StarCitizenAPIWrapper.Library.Services.HttpFailedRequestException">This exception will be thrown if you do not get a successful status code</exception>
+        </member>
+        <member name="T:StarCitizenAPIWrapper.Library.IStarCitizenClient">
             <summary>
             Client to connect to the Star Citizen API.
             </summary>
         </member>
-        <member name="F:StarCitizenAPIWrapper.Library.StarCitizenClient._currentClient">
-            <summary>
-            The current <see cref="T:StarCitizenAPIWrapper.Library.StarCitizenClient"/> instance.
-            </summary>
-        </member>
-        <member name="M:StarCitizenAPIWrapper.Library.StarCitizenClient.#ctor(System.String)">
-            <summary>
-            Initializes a new instance of <see cref="T:StarCitizenAPIWrapper.Library.StarCitizenClient"/>.
-            </summary>
-            <param name="apiKey"></param>
-        </member>
-        <member name="M:StarCitizenAPIWrapper.Library.StarCitizenClient.GetClient(System.String)">
-            <summary>
-            Gives the current <see cref="T:StarCitizenAPIWrapper.Library.StarCitizenClient"/>.
-            Creates one if there isn't a current instance.
-            </summary>
-        </member>
-        <member name="M:StarCitizenAPIWrapper.Library.StarCitizenClient.GetUser(System.String)">
+        <member name="M:StarCitizenAPIWrapper.Library.IStarCitizenClient.GetUser(System.String)">
             <summary>
             Sends an API request for user information.
             </summary>
             <param name="handle">The handle of the requested user.</param>
             <returns>An instance of <see cref="T:StarCitizenAPIWrapper.Models.User.IUser"/> containing the information about the requested user.</returns>
         </member>
-        <member name="M:StarCitizenAPIWrapper.Library.StarCitizenClient.GetOrganization(System.String)">
+        <member name="M:StarCitizenAPIWrapper.Library.IStarCitizenClient.GetOrganization(System.String)">
             <summary>
             Sends an API request for organization information.
             </summary>
             <param name="sid">The SID of the organization</param>
         </member>
-        <member name="M:StarCitizenAPIWrapper.Library.StarCitizenClient.GetOrganizationMembers(System.String)">
+        <member name="M:StarCitizenAPIWrapper.Library.IStarCitizenClient.GetOrganizationMembers(System.String)">
             <summary>
             Sends an API request for members of an organization.
             </summary>
             <param name="sid">The SID of the organization.</param>
         </member>
-        <member name="M:StarCitizenAPIWrapper.Library.StarCitizenClient.GetVersions">
+        <member name="M:StarCitizenAPIWrapper.Library.IStarCitizenClient.GetVersions">
             <summary>
             Sends an API request for current existing versions.
             </summary>
             <returns></returns>
         </member>
-        <member name="M:StarCitizenAPIWrapper.Library.StarCitizenClient.GetShips(StarCitizenAPIWrapper.Library.Helpers.ShipRequest)">
+        <member name="M:StarCitizenAPIWrapper.Library.IStarCitizenClient.GetShips(StarCitizenAPIWrapper.Library.Helpers.ShipRequest)">
             <summary>
             Sends an API request for the ships within the specified parameters.
             </summary>
         </member>
-        <member name="M:StarCitizenAPIWrapper.Library.StarCitizenClient.GetRoadmap(StarCitizenAPIWrapper.Library.RoadmapTypes,System.String)">
+        <member name="M:StarCitizenAPIWrapper.Library.IStarCitizenClient.GetRoadmap(StarCitizenAPIWrapper.Library.RoadmapTypes,System.String)">
             <summary>
             Sends an API request for the roadmap of the given type.
             </summary>
         </member>
-        <member name="M:StarCitizenAPIWrapper.Library.StarCitizenClient.GetStats">
+        <member name="M:StarCitizenAPIWrapper.Library.IStarCitizenClient.GetStats">
             <summary>
             Sends an API request for the current star citizen stats.
             </summary>
             <returns></returns>
         </member>
-        <member name="M:StarCitizenAPIWrapper.Library.StarCitizenClient.GetAllSystems">
+        <member name="M:StarCitizenAPIWrapper.Library.IStarCitizenClient.GetAllSystems">
             <summary>
             Sends an API request for all star systems;
             </summary>
         </member>
-        <member name="M:StarCitizenAPIWrapper.Library.StarCitizenClient.GetSystem(System.String)">
+        <member name="M:StarCitizenAPIWrapper.Library.IStarCitizenClient.GetSystem(System.String)">
             <summary>
             Sends an API request for the star system information with the given name.
             </summary>
         </member>
-        <member name="M:StarCitizenAPIWrapper.Library.StarCitizenClient.GetTunnels(System.String)">
+        <member name="M:StarCitizenAPIWrapper.Library.IStarCitizenClient.GetTunnels(System.String)">
             <summary>
             Gets the tunnel with the given id or all tunnels.
             </summary>
         </member>
-        <member name="M:StarCitizenAPIWrapper.Library.StarCitizenClient.GetSpecies(System.String)">
+        <member name="M:StarCitizenAPIWrapper.Library.IStarCitizenClient.GetSpecies(System.String)">
             <summary>
             Gets the information of the species from the API.
             </summary>
             <param name="name">The name if a specific one is requested.</param>
         </member>
-        <member name="M:StarCitizenAPIWrapper.Library.StarCitizenClient.GetAffiliations(System.String)">
+        <member name="M:StarCitizenAPIWrapper.Library.IStarCitizenClient.GetAffiliations(System.String)">
             <summary>
             Gets the information of the affiliations from the API.
             </summary>
         </member>
-        <member name="M:StarCitizenAPIWrapper.Library.StarCitizenClient.GetObject(System.String)">
+        <member name="M:StarCitizenAPIWrapper.Library.IStarCitizenClient.GetObject(System.String)">
             <summary>
             Gets the information from the API of the given object code.
             </summary>
         </member>
-        <member name="M:StarCitizenAPIWrapper.Library.StarCitizenClient.GetStarmapSystem(System.String)">
+        <member name="M:StarCitizenAPIWrapper.Library.IStarCitizenClient.GetStarmapSystem(System.String)">
             <summary>
             Gets the information from the API of the given system code.
             </summary>
         </member>
-        <member name="M:StarCitizenAPIWrapper.Library.StarCitizenClient.GetStarmapObjectFromName(System.String)">
+        <member name="M:StarCitizenAPIWrapper.Library.IStarCitizenClient.GetStarmapObjectFromName(System.String)">
             <summary>
             Gets a specific starmap object with the given name.
+            </summary>
+        </member>
+        <member name="M:StarCitizenAPIWrapper.Library.StarCitizenClient.#ctor(Microsoft.Extensions.Configuration.IConfiguration,StarCitizenAPIWrapper.Library.Services.IHttpClientService)">
+            <summary>
+            Initializes a new instance of <see cref="T:StarCitizenAPIWrapper.Library.StarCitizenClient"/>.
             </summary>
         </member>
         <member name="M:StarCitizenAPIWrapper.Library.StarCitizenClient.ParseUserProfile(Newtonsoft.Json.Linq.JToken)">

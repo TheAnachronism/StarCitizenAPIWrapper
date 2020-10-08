@@ -1,7 +1,5 @@
-using System.Linq;
-using System.Net.Http;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
 using StarCitizenAPIWrapper.Library.Services;
 
 namespace StarCitizenAPIWrapper.Library.Helpers
@@ -12,19 +10,16 @@ namespace StarCitizenAPIWrapper.Library.Helpers
     public static class ServiceCollectionExtension
     {
         /// <summary>
-        /// Adds the <see cref="StarCitizenClient"/> to the service collection. This will call <see cref="System.Net.Http.IHttpClientFactory"/> if you have not registered the
-        /// service already. If you wish to add this then call Microsoft.Extensions.DependencyInjection.AddHttpClient() with your configuration before using this.
+        /// Adds the <see cref="AddStarCitizenApiLibrary"/> to the service collection.
         /// </summary>
-        public static IServiceCollection AddStarCitizenClient(this IServiceCollection services)
+        public static IServiceCollection AddStarCitizenApiLibrary(this IServiceCollection services, IConfiguration config)
         {
-            if (!services.Any(x => x.ServiceType == typeof(IHttpClientFactory)))
-            {
-                services.AddHttpClient();
-            }
-            services.AddSingleton<IHttpClientService, HttpClientService>();
-            services.TryAddTransient<IStarCitizenClient, StarCitizenClient>();
-
+            services.Configure<StarCitizenClientConfig>(config.GetSection(StarCitizenClientConfig.StarCitizenClient));
+            services.AddTransient<IHttpClientService, HttpClientService>();
+            services.AddTransient<IStarCitizenClient, StarCitizenClient>();
+            services.AddHttpClient<IHttpClientService, HttpClientService>();
             return services;
         }
+
     }
 }

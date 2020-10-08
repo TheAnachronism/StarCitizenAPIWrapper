@@ -20,9 +20,7 @@ namespace StarCitizenAPIWrapper.ConsoleTesting
                 .Build();
 
             var services = new ServiceCollection()
-                .AddSingleton(config)
-                .AddHttpClient()
-                .AddStarCitizenClient()
+                .AddStarCitizenApiLibrary(config)
                 .BuildServiceProvider();
 
             var client = services.GetService<IStarCitizenClient>();

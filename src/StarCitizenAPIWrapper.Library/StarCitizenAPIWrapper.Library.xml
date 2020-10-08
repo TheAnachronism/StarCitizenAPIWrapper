@@ -46,10 +46,9 @@
             Extension for the <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> to use the <see cref="T:StarCitizenAPIWrapper.Library.StarCitizenClient"/>.
             </summary>
         </member>
-        <member name="M:StarCitizenAPIWrapper.Library.Helpers.ServiceCollectionExtension.AddStarCitizenClient(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+        <member name="M:StarCitizenAPIWrapper.Library.Helpers.ServiceCollectionExtension.AddStarCitizenApiLibrary(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
-            Adds the <see cref="T:StarCitizenAPIWrapper.Library.StarCitizenClient"/> to the service collection. This will call <see cref="T:System.Net.Http.IHttpClientFactory"/> if you have not registered the
-            service already. If you wish to add this then call Microsoft.Extensions.DependencyInjection.AddHttpClient() with your configuration before using this.
+            Adds the <see cref="M:StarCitizenAPIWrapper.Library.Helpers.ServiceCollectionExtension.AddStarCitizenApiLibrary(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)"/> to the service collection.
             </summary>
         </member>
         <member name="T:StarCitizenAPIWrapper.Library.Helpers.ShipRequest">
@@ -241,7 +240,7 @@
             Gets a specific starmap object with the given name.
             </summary>
         </member>
-        <member name="M:StarCitizenAPIWrapper.Library.StarCitizenClient.#ctor(Microsoft.Extensions.Configuration.IConfiguration,StarCitizenAPIWrapper.Library.Services.IHttpClientService)">
+        <member name="M:StarCitizenAPIWrapper.Library.StarCitizenClient.#ctor(Microsoft.Extensions.Options.IOptions{StarCitizenAPIWrapper.Library.StarCitizenClientConfig},StarCitizenAPIWrapper.Library.Services.IHttpClientService)">
             <summary>
             Initializes a new instance of <see cref="T:StarCitizenAPIWrapper.Library.StarCitizenClient"/>.
             </summary>

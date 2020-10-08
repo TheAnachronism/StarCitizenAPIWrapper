@@ -1,8 +1,10 @@
 using System;
 using System.Net;
 using System.Net.Http;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
+[assembly: InternalsVisibleTo("StarCitizenAPIWrapper.Library.Tests")] 
 namespace StarCitizenAPIWrapper.Library.Services
 {
     /// <summary>
@@ -21,20 +23,19 @@ namespace StarCitizenAPIWrapper.Library.Services
 
     class HttpClientService : IHttpClientService
     {
-        private readonly IHttpClientFactory _httpClientFactory;
+        private readonly HttpClient _httpClient;
         
-        public HttpClientService(IHttpClientFactory httpClientFactory)
+        public HttpClientService(HttpClient httpClient)
         {
-            _httpClientFactory = httpClientFactory ?? throw new ArgumentNullException(nameof(httpClientFactory));
+            _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
         }
 
         public async Task<string> Get(string url)
         {
-            var client = _httpClientFactory.CreateClient();
-            var response = await client.GetAsync(url);
+            var response = await _httpClient.GetAsync(url);
 
             if (!response.IsSuccessStatusCode)
-                throw new HttpFailedRequestException(response.ReasonPhrase);
+                throw new HttpFailedRequestException(response.StatusCode, response.ReasonPhrase, url);
 
             return await response.Content.ReadAsStringAsync();
         }
@@ -53,7 +54,7 @@ namespace StarCitizenAPIWrapper.Library.Services
 
         private static string GenerateGetException(HttpStatusCode statusCode, string reasonPhrase, string url)
         {
-            return $"Status Code: {statusCode.ToString()} - Reason Phrase: {reasonPhrase} : URL: {url}";
+            return $"Status Code: {(int)statusCode} - Reason Phrase: {reasonPhrase} : URL: {url}";
         }
     }
 }

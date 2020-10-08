@@ -1,6 +1,8 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using StarCitizenAPIWrapper.Library;
+using StarCitizenAPIWrapper.Library.Helpers;
 
 namespace StarCitizenAPIWrapper.ConsoleTesting
 {
@@ -17,7 +19,11 @@ namespace StarCitizenAPIWrapper.ConsoleTesting
                 .AddJsonFile("appsettings.json")
                 .Build();
 
-            var client = StarCitizenClient.GetClient(config.GetSection("ApiKey").Value);
+            var services = new ServiceCollection()
+                .AddStarCitizenApiLibrary(config)
+                .BuildServiceProvider();
+
+            var client = services.GetService<IStarCitizenClient>();
 
             var result = await client.GetStarmapObjectFromName("Stanton");
         }

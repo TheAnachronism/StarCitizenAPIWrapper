@@ -39,7 +39,7 @@ namespace StarCitizenAPIWrapper.Library.Helpers
         public static object ParseValueIntoSupportedTypeSafe(string value, Type type, bool parseDateTimeFromTimeStamp = false)
         {
             if (type == typeof(string))
-                return value;
+                return value.Trim();
 
             if (type == typeof(int) && int.TryParse(value, out var intResult))
                 return intResult;

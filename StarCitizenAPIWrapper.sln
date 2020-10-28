@@ -16,9 +16,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarCitizenAPIWrapper.Models", "src\StarCitizenAPIWrapper.Models\StarCitizenAPIWrapper.Models.csproj", "{8ACDCFFA-9921-414A-98D3-629F95F684DA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "example", "example", "{4CFCE72C-9A95-4B30-9723-F3829D68182C}"
-	ProjectSection(SolutionItems) = preProject
-		example\M50-API-Result.json = example\M50-API-Result.json
-	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarCitizenAPIWrapper.Example.Console", "example\StarCitizenAPIWrapper.Examples.Console\StarCitizenAPIWrapper.Example.Console.csproj", "{C2506D54-7EC5-4B76-9CBC-6E2805C697C2}"
 EndProject

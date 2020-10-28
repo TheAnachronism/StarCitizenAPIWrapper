@@ -21,7 +21,7 @@ namespace StarCitizenAPIWrapper.Library.Services
         Task<string> Get(string url);
     }
 
-    class HttpClientService : IHttpClientService
+    internal class HttpClientService : IHttpClientService
     {
         private readonly HttpClient _httpClient;
         

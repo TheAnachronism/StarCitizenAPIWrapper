@@ -15,7 +15,7 @@ namespace StarCitizenAPIWrapper.Library.Helpers
         public static IServiceCollection AddStarCitizenApiLibrary(this IServiceCollection services, IConfiguration config)
         {
             services.Configure<StarCitizenClientConfig>(config.GetSection(StarCitizenClientConfig.StarCitizenClient));
-            services.AddTransient<IHttpClientService, HttpClientService>();
+            //services.AddTransient<IHttpClientService, HttpClientService>();
             services.AddTransient<IStarCitizenClient, StarCitizenClient>();
             services.AddHttpClient<IHttpClientService, HttpClientService>();
             return services;

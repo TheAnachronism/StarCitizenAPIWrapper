@@ -11,7 +11,6 @@ using StarCitizenAPIWrapper.Models.Organization.Members;
 using StarCitizenAPIWrapper.Models.RoadMap;
 using StarCitizenAPIWrapper.Models.Ships;
 using StarCitizenAPIWrapper.Models.Ships.Compiled;
-using StarCitizenAPIWrapper.Models.Ships.Implementations;
 using StarCitizenAPIWrapper.Models.Ships.Manufacturer;
 using StarCitizenAPIWrapper.Models.Ships.Media;
 using StarCitizenAPIWrapper.Models.Starmap.Affiliations;
@@ -60,7 +59,7 @@ namespace StarCitizenAPIWrapper.Library
         /// <summary>
         /// Sends an API request for the ships within the specified parameters.
         /// </summary>
-        public Task<List<IShip>> GetShips(ShipRequest request);
+        public Task<List<StarCitizenShip>> GetShips(ShipRequest request);
 
         /// <summary>
         /// Sends an API request for the roadmap of the given type.
@@ -254,7 +253,7 @@ namespace StarCitizenAPIWrapper.Library
             return version;
         }
 
-        public async Task<List<IShip>> GetShips(ShipRequest request)
+        public async Task<List<StarCitizenShip>> GetShips(ShipRequest request)
         {
             var requestUrl = string.Format(_config.ApiCacheRequestUrl, _config.ApiKey, $"/ships?{string.Join("&", request.RequestParameters)}");
             var content = await _httpService.Get(requestUrl);
@@ -264,23 +263,23 @@ namespace StarCitizenAPIWrapper.Library
             var customParseBehaviour = new Dictionary<string, Func<JToken, object>>
             {
                 {
-                    nameof(IShip.Media),
+                    nameof(StarCitizenShip.Media),
                     currentValue => (currentValue as JArray)!.Select(ParseShipMedia).ToArray()
                 },
                 {
-                    nameof(IShip.Size), currentValue =>
+                    nameof(StarCitizenShip.Size), currentValue =>
                         Enum.TryParse(currentValue?.ToString(), true, out ShipSizes sizeResult)
                             ? sizeResult
                             : ShipSizes.Undefined
                 },
                 {
-                    nameof(IShip.Type), currentValue =>
+                    nameof(StarCitizenShip.Type), currentValue =>
                         Enum.TryParse(currentValue?.ToString(), true, out ShipTypes typeResult)
                             ? typeResult
                             : ShipTypes.Undefined
                 },
                 {
-                    nameof(IShip.ProductionStatus), delegate(JToken currentValue)
+                    nameof(StarCitizenShip.ProductionStatus), delegate(JToken currentValue)
                     {
                         var valueToParse = currentValue?.ToString().Replace("-", "");
 
@@ -292,14 +291,14 @@ namespace StarCitizenAPIWrapper.Library
                     }
                 },
                 {
-                    nameof(IShip.Compiled), ParseShipCompiled
+                    nameof(StarCitizenShip.Compiled), ParseShipCompiled
                 },
                 {
-                    nameof(IShip.Manufacturer), ParseManufacturer
+                    nameof(StarCitizenShip.Manufacturer), ParseManufacturer
                 }
             };
 
-            var ships = new List<IShip>();
+            var ships = new List<StarCitizenShip>();
 
             var shipsAsJson = data as JArray;
 

@@ -390,284 +390,6 @@
             The type of this component.
             </summary>
         </member>
-        <member name="T:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip">
-            <summary>
-            The default implementation of <see cref="T:StarCitizenAPIWrapper.Models.Ships.IShip"/>.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.AfterburnerSpeed">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.Beam">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.CargoCapacity">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.ChassisId">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.Compiled">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.Description">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.Focus">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.Height">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.Id">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.Length">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.Manufacturer">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.ManufacturerId">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.Mass">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.MaxCrew">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.Media">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.MinCrew">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.Name">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.PitchMax">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.Price">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.ProductionNote">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.ProductionStatus">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.RollMax">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.ScmSpeed">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.Size">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.TimeModified">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.Type">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.Url">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.XAxisAcceleration">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.YawMax">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.YAxisAcceleration">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.ZAxisAcceleration">
-            <inheritdoc />
-        </member>
-        <member name="T:StarCitizenAPIWrapper.Models.Ships.IShip">
-            <summary>
-            Interface for the information about a ship.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.AfterburnerSpeed">
-            <summary>
-            The after burner speed of this ship.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.Beam">
-            <summary>
-            The beam of this ship.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.CargoCapacity">
-            <summary>
-            The cargo capacity of this ship.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.ChassisId">
-            <summary>
-            The id of the chassis of this ship.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.Compiled">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.Description">
-            <summary>
-            The description of this ship.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.Focus">
-            <summary>
-            The focus of this ship.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.Height">
-            <summary>
-            The height of this ship.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.Id">
-            <summary>
-            The id of this ship on the API database.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.Length">
-            <summary>
-            The length of this ship.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.Manufacturer">
-            <summary>
-            The manufacturer of this ship.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.ManufacturerId">
-            <summary>
-            The id of the manufacturer of this ship.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.Mass">
-            <summary>
-            The mass of this ship.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.MaxCrew">
-            <summary>
-            The maximal amount of crew members for this ship.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.Media">
-            <summary>
-            Array of urls of images for this ship.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.MinCrew">
-            <summary>
-            The minimal amount of crew members for this ship.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.Name">
-            <summary>
-            The name of this ship.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.PitchMax">
-            <summary>
-            The maximal amount of pitch this ship has.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.Price">
-            <summary>
-            The price of this ship.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.ProductionNote">
-            <summary>
-            The production note of this ship.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.ProductionStatus">
-            <summary>
-            The current status of the production of this ship.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.RollMax">
-            <summary>
-            The maximal amount of roll this ship has.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.ScmSpeed">
-            <summary>
-            The scm speed of this ship.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.Size">
-            <summary>
-            The size of this ship.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.TimeModified">
-            <summary>
-            The last time this ship was modified.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.Type">
-            <summary>
-            The type of this ship.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.Url">
-            <summary>
-            The url of this ship on the RSI website.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.XAxisAcceleration">
-            <summary>
-            The acceleration on the x-axis of this ship.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.YawMax">
-            <summary>
-            The maximal amount of yaw of this ship.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.YAxisAcceleration">
-            <summary>
-            The acceleration on the y-axis of this ship.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.ZAxisAcceleration">
-            <summary>
-            The acceleration on the z-axis of this ship.
-            </summary>
-        </member>
-        <member name="T:StarCitizenAPIWrapper.Models.Ships.ProductionStatusTypes">
-            <summary>
-            The different types of production status for ships.
-            </summary>
-        </member>
-        <member name="T:StarCitizenAPIWrapper.Models.Ships.ShipSizes">
-            <summary>
-            The different sizes of ships.
-            </summary>
-        </member>
-        <member name="T:StarCitizenAPIWrapper.Models.Ships.ShipTypes">
-            <summary>
-            The different types of ships.
-            </summary>
-        </member>
-        <member name="T:StarCitizenAPIWrapper.Models.Ships.ShipCompiledClasses">
-            <summary>
-            The different classes of components of a ship.
-            </summary>
-        </member>
         <member name="T:StarCitizenAPIWrapper.Models.Ships.Manufacturer.ShipManufacturer">
             <summary>
             The information about a manufacturer of a ship.
@@ -741,6 +463,186 @@
         <member name="P:StarCitizenAPIWrapper.Models.Ships.Media.ShipMediaImage.Width">
             <summary>
             The width of this image.
+            </summary>
+        </member>
+        <member name="T:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip">
+            <summary>
+            Interface for the information about a ship.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.AfterburnerSpeed">
+            <summary>
+            The after burner speed of this ship.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.Beam">
+            <summary>
+            The beam of this ship.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.CargoCapacity">
+            <summary>
+            The cargo capacity of this ship.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.ChassisId">
+            <summary>
+            The id of the chassis of this ship.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.Compiled">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.Description">
+            <summary>
+            The description of this ship.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.Focus">
+            <summary>
+            The focus of this ship.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.Height">
+            <summary>
+            The height of this ship.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.Id">
+            <summary>
+            The id of this ship on the API database.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.Length">
+            <summary>
+            The length of this ship.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.Manufacturer">
+            <summary>
+            The manufacturer of this ship.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.ManufacturerId">
+            <summary>
+            The id of the manufacturer of this ship.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.Mass">
+            <summary>
+            The mass of this ship.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.MaxCrew">
+            <summary>
+            The maximal amount of crew members for this ship.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.Media">
+            <summary>
+            Array of urls of images for this ship.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.MinCrew">
+            <summary>
+            The minimal amount of crew members for this ship.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.Name">
+            <summary>
+            The name of this ship.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.PitchMax">
+            <summary>
+            The maximal amount of pitch this ship has.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.Price">
+            <summary>
+            The price of this ship.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.ProductionNote">
+            <summary>
+            The production note of this ship.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.ProductionStatus">
+            <summary>
+            The current status of the production of this ship.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.RollMax">
+            <summary>
+            The maximal amount of roll this ship has.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.ScmSpeed">
+            <summary>
+            The scm speed of this ship.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.Size">
+            <summary>
+            The size of this ship.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.TimeModified">
+            <summary>
+            The last time this ship was modified.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.Type">
+            <summary>
+            The type of this ship.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.Url">
+            <summary>
+            The url of this ship on the RSI website.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.XAxisAcceleration">
+            <summary>
+            The acceleration on the x-axis of this ship.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.YawMax">
+            <summary>
+            The maximal amount of yaw of this ship.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.YAxisAcceleration">
+            <summary>
+            The acceleration on the y-axis of this ship.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.ZAxisAcceleration">
+            <summary>
+            The acceleration on the z-axis of this ship.
+            </summary>
+        </member>
+        <member name="T:StarCitizenAPIWrapper.Models.Ships.ProductionStatusTypes">
+            <summary>
+            The different types of production status for ships.
+            </summary>
+        </member>
+        <member name="T:StarCitizenAPIWrapper.Models.Ships.ShipSizes">
+            <summary>
+            The different sizes of ships.
+            </summary>
+        </member>
+        <member name="T:StarCitizenAPIWrapper.Models.Ships.ShipTypes">
+            <summary>
+            The different types of ships.
+            </summary>
+        </member>
+        <member name="T:StarCitizenAPIWrapper.Models.Ships.ShipCompiledClasses">
+            <summary>
+            The different classes of components of a ship.
             </summary>
         </member>
         <member name="T:StarCitizenAPIWrapper.Models.Starmap.Affiliations.StarCitizenAffiliation">

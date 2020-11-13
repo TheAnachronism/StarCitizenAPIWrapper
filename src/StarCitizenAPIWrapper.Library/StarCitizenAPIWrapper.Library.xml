@@ -163,7 +163,7 @@
             Sends an API request for user information.
             </summary>
             <param name="handle">The handle of the requested user.</param>
-            <returns>An instance of <see cref="T:StarCitizenAPIWrapper.Models.User.IUser"/> containing the information about the requested user.</returns>
+            <returns>An instance of <see cref="T:StarCitizenAPIWrapper.Models.User.StarCitizenUser"/> containing the information about the requested user.</returns>
         </member>
         <member name="M:StarCitizenAPIWrapper.Library.IStarCitizenClient.GetOrganization(System.String)">
             <summary>
@@ -247,14 +247,14 @@
         </member>
         <member name="M:StarCitizenAPIWrapper.Library.StarCitizenClient.ParseUserProfile(Newtonsoft.Json.Linq.JToken)">
             <summary>
-            Parses the given profile json into a <see cref="T:StarCitizenAPIWrapper.Models.User.IUserProfile"/>.
+            Parses the given profile json into a <see cref="T:StarCitizenAPIWrapper.Models.User.StarCitizenUserProfile"/>.
             </summary>
             <param name="profileData">The <see cref="T:Newtonsoft.Json.Linq.JToken"/> containing the profile information.</param>
-            <returns>A new instance of <see cref="T:StarCitizenAPIWrapper.Models.User.IUserProfile"/> containing the parsed information.</returns>
+            <returns>A new instance of <see cref="T:StarCitizenAPIWrapper.Models.User.StarCitizenUserProfile"/> containing the parsed information.</returns>
         </member>
         <member name="M:StarCitizenAPIWrapper.Library.StarCitizenClient.ParseUserOrganizationInfo(Newtonsoft.Json.Linq.JToken)">
             <summary>
-            Parses the given organization information of a user into a <see cref="T:StarCitizenAPIWrapper.Models.User.IUserOrganizationInfo"/>.
+            Parses the given organization information of a user into a <see cref="T:StarCitizenAPIWrapper.Models.User.UserOrganizationInfo"/>.
             </summary>
         </member>
         <member name="M:StarCitizenAPIWrapper.Library.StarCitizenClient.ParseShipMedia(Newtonsoft.Json.Linq.JToken)">

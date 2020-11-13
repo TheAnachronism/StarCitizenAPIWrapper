@@ -25,7 +25,6 @@ using StarCitizenAPIWrapper.Models.Starmap.Systems.Implementations;
 using StarCitizenAPIWrapper.Models.Starmap.Tunnels;
 using StarCitizenAPIWrapper.Models.Stats;
 using StarCitizenAPIWrapper.Models.User;
-using StarCitizenAPIWrapper.Models.User.Implementations;
 using StarCitizenAPIWrapper.Models.Version;
 using StarCitizenAPIWrapper.Models.Version.Implementations;
 
@@ -40,8 +39,8 @@ namespace StarCitizenAPIWrapper.Library
         /// Sends an API request for user information.
         /// </summary>
         /// <param name="handle">The handle of the requested user.</param>
-        /// <returns>An instance of <see cref="IUser"/> containing the information about the requested user.</returns>
-        public Task<IUser> GetUser(string handle);
+        /// <returns>An instance of <see cref="StarCitizenUser"/> containing the information about the requested user.</returns>
+        public Task<StarCitizenUser> GetUser(string handle);
 
         /// <summary>
         /// Sends an API request for organization information.
@@ -146,7 +145,7 @@ namespace StarCitizenAPIWrapper.Library
         #endregion
 
         #region public methods
-        public async Task<IUser> GetUser(string handle)
+        public async Task<StarCitizenUser> GetUser(string handle)
         {
             var requestUrl = string.Format(_config.ApiRequestUrl, _config.ApiKey, $"user/{handle}");
             var content = await _httpService.Get(requestUrl);
@@ -506,11 +505,11 @@ namespace StarCitizenAPIWrapper.Library
 
 
         /// <summary>
-        /// Parses the given profile json into a <see cref="IUserProfile"/>.
+        /// Parses the given profile json into a <see cref="StarCitizenUserProfile"/>.
         /// </summary>
         /// <param name="profileData">The <see cref="JToken"/> containing the profile information.</param>
-        /// <returns>A new instance of <see cref="IUserProfile"/> containing the parsed information.</returns>
-        private static IUserProfile ParseUserProfile(JToken profileData)
+        /// <returns>A new instance of <see cref="StarCitizenUserProfile"/> containing the parsed information.</returns>
+        private static StarCitizenUserProfile ParseUserProfile(JToken profileData)
         {
             var customBehaviour = new Dictionary<string, Func<JToken, object>>
             {
@@ -538,9 +537,9 @@ namespace StarCitizenAPIWrapper.Library
         }
 
         /// <summary>
-        /// Parses the given organization information of a user into a <see cref="IUserOrganizationInfo"/>.
+        /// Parses the given organization information of a user into a <see cref="UserOrganizationInfo"/>.
         /// </summary>
-        private static IUserOrganizationInfo ParseUserOrganizationInfo(JToken userOrganizationData)
+        private static UserOrganizationInfo ParseUserOrganizationInfo(JToken userOrganizationData)
         {
             return GenericJsonParser.ParseJsonIntoNewInstanceOfGivenType<UserOrganizationInfo>(userOrganizationData,
                 new Dictionary<string, Func<JToken, object>>());

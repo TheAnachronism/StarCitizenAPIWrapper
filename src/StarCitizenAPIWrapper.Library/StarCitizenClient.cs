@@ -18,7 +18,6 @@ using StarCitizenAPIWrapper.Models.Starmap.Object;
 using StarCitizenAPIWrapper.Models.Starmap.Search;
 using StarCitizenAPIWrapper.Models.Starmap.Species;
 using StarCitizenAPIWrapper.Models.Starmap.Systems;
-using StarCitizenAPIWrapper.Models.Starmap.Systems.Implementations;
 using StarCitizenAPIWrapper.Models.Starmap.Tunnels;
 using StarCitizenAPIWrapper.Models.Stats;
 using StarCitizenAPIWrapper.Models.User;
@@ -75,12 +74,12 @@ namespace StarCitizenAPIWrapper.Library
         /// <summary>
         /// Sends an API request for all star systems;
         /// </summary>
-        public Task<List<IStarmapSystem>> GetAllSystems();
+        public Task<List<StarmapSystem>> GetAllSystems();
 
         /// <summary>
         /// Sends an API request for the star system information with the given name.
         /// </summary>
-        public Task<List<IStarmapSystem>> GetSystem(string name);
+        public Task<List<StarmapSystem>> GetSystem(string name);
 
         /// <summary>
         /// Gets the tunnel with the given id or all tunnels.
@@ -356,13 +355,13 @@ namespace StarCitizenAPIWrapper.Library
             return stats;
         }
 
-        public async Task<List<IStarmapSystem>> GetAllSystems()
+        public async Task<List<StarmapSystem>> GetAllSystems()
         {
             var requestUrl = string.Format(_config.ApiRequestUrl, _config.ApiKey, "starmap/systems");
             return await GetSystems(requestUrl);
         }
 
-        public async Task<List<IStarmapSystem>> GetSystem(string name)
+        public async Task<List<StarmapSystem>> GetSystem(string name)
         {
             var requestUrl = string.Format(_config.ApiRequestUrl, _config.ApiKey, $"starmap/systems?name={name}");
             return await GetSystems(requestUrl);
@@ -689,12 +688,12 @@ namespace StarCitizenAPIWrapper.Library
         /// <summary>
         /// Sends an API request for the star system information with the given name.
         /// </summary>
-        private async Task<List<IStarmapSystem>> GetSystems(string requestUrl)
+        private async Task<List<StarmapSystem>> GetSystems(string requestUrl)
         {
             var content = await _httpService.Get(requestUrl);
             var data = JObject.Parse(content)["data"];
 
-            var systemList = new List<IStarmapSystem>();
+            var systemList = new List<StarmapSystem>();
 
             if (data?.Type == JTokenType.Array)
             {
@@ -702,7 +701,7 @@ namespace StarCitizenAPIWrapper.Library
             }
             else
             {
-                systemList.Add((StarmapSystem) ParseStarmapSystem<StarmapSystem>(data));
+                systemList.Add(ParseStarmapSystem<StarmapSystem>(data));
             }
 
             return systemList;
@@ -711,12 +710,12 @@ namespace StarCitizenAPIWrapper.Library
         /// <summary>
         /// Parses the given json data into a <see cref="StarmapSystem"/>.
         /// </summary>
-        private static IStarmapSystem ParseStarmapSystem<T>(JToken starmapSystemJson) where T : IStarmapSystem
+        private static StarmapSystem ParseStarmapSystem<T>(JToken starmapSystemJson) where T : StarmapSystem
         {
             var customParseBehaviour = new Dictionary<string, Func<JToken, object>>
             {
                 {
-                    nameof(IStarmapSystem.Affiliations), delegate(JToken currentValue)
+                    nameof(StarmapSystem.Affiliations), delegate(JToken currentValue)
                     {
                         var affiliationList = new List<StarmapSystemAffiliation>();
 
@@ -741,7 +740,7 @@ namespace StarCitizenAPIWrapper.Library
                     }
                 },
                 {
-                    nameof(IStarmapSystem.Thumbnail), delegate(JToken currentValue)
+                    nameof(StarmapSystem.Thumbnail), delegate(JToken currentValue)
                     {
                         var thumbnail = new StarmapSystemThumbnail
                         {

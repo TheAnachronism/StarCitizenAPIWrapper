@@ -975,146 +975,92 @@
             The name of this species.
             </summary>
         </member>
-        <member name="T:StarCitizenAPIWrapper.Models.Starmap.Systems.Implementations.StarmapSystem">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.Implementations.StarmapSystem.Affiliations">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.Implementations.StarmapSystem.AggregatedDanger">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.Implementations.StarmapSystem.AggregatedEconomy">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.Implementations.StarmapSystem.AggregatedPopulation">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.Implementations.StarmapSystem.AggregatedSize">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.Implementations.StarmapSystem.Code">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.Implementations.StarmapSystem.Description">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.Implementations.StarmapSystem.Id">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.Implementations.StarmapSystem.InfoUrl">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.Implementations.StarmapSystem.Name">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.Implementations.StarmapSystem.PositionX">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.Implementations.StarmapSystem.PositionY">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.Implementations.StarmapSystem.PositionZ">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.Implementations.StarmapSystem.Status">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.Implementations.StarmapSystem.Thumbnail">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.Implementations.StarmapSystem.TimeModified">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.Implementations.StarmapSystem.Type">
-            <inheritdoc />
-        </member>
-        <member name="T:StarCitizenAPIWrapper.Models.Starmap.Systems.IStarmapSystem">
+        <member name="T:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystem">
             <summary>
             The information about a starmap system from RSI.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.IStarmapSystem.Affiliations">
+        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystem.Affiliations">
             <summary>
             The different affiliations of this system.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.IStarmapSystem.AggregatedDanger">
+        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystem.AggregatedDanger">
             <summary>
             The aggregated danger of this system.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.IStarmapSystem.AggregatedEconomy">
+        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystem.AggregatedEconomy">
             <summary>
             The aggregated economy of this system.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.IStarmapSystem.AggregatedPopulation">
+        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystem.AggregatedPopulation">
             <summary>
             The aggregated population of this system.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.IStarmapSystem.AggregatedSize">
+        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystem.AggregatedSize">
             <summary>
             The aggregated size of this system.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.IStarmapSystem.Code">
+        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystem.Code">
             <summary>
             The code of this system.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.IStarmapSystem.Description">
+        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystem.Description">
             <summary>
             The description of this system.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.IStarmapSystem.Id">
+        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystem.Id">
             <summary>
             The id of this system.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.IStarmapSystem.InfoUrl">
+        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystem.InfoUrl">
             <summary>
             The info url of this system.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.IStarmapSystem.Name">
+        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystem.Name">
             <summary>
             The name of this system.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.IStarmapSystem.PositionX">
+        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystem.PositionX">
             <summary>
             The x position of this system in the verse.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.IStarmapSystem.PositionY">
+        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystem.PositionY">
             <summary>
             The y position of this system in the verse.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.IStarmapSystem.PositionZ">
+        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystem.PositionZ">
             <summary>
             The z position of this system in the verse.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.IStarmapSystem.Status">
+        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystem.Status">
             <summary>
             The status of this system.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.IStarmapSystem.Thumbnail">
+        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystem.Thumbnail">
             <summary>
             The thumbnail information of this system.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.IStarmapSystem.TimeModified">
+        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystem.TimeModified">
             <summary>
             The last time this system was modified.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.IStarmapSystem.Type">
+        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystem.Type">
             <summary>
             The system type.
             </summary>
@@ -1173,57 +1119,6 @@
             <summary>
             The habitable zone on the outer layer.
             </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystemDetail.Affiliations">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystemDetail.AggregatedDanger">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystemDetail.AggregatedEconomy">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystemDetail.AggregatedPopulation">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystemDetail.AggregatedSize">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystemDetail.Code">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystemDetail.Description">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystemDetail.Id">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystemDetail.InfoUrl">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystemDetail.Name">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystemDetail.PositionX">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystemDetail.PositionY">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystemDetail.PositionZ">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystemDetail.Status">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystemDetail.Thumbnail">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystemDetail.TimeModified">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystemDetail.Type">
-            <inheritdoc />
         </member>
         <member name="T:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystemThumbnail">
             <summary>

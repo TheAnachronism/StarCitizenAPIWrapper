@@ -299,7 +299,7 @@
         </member>
         <member name="M:StarCitizenAPIWrapper.Library.StarCitizenClient.ParseStarmapSystem``1(Newtonsoft.Json.Linq.JToken)">
             <summary>
-            Parses the given json data into a <see cref="T:StarCitizenAPIWrapper.Models.Starmap.Systems.Implementations.StarmapSystem"/>.
+            Parses the given json data into a <see cref="T:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystem"/>.
             </summary>
         </member>
         <member name="M:StarCitizenAPIWrapper.Library.StarCitizenClient.ParseStarmapTunnel(Newtonsoft.Json.Linq.JToken)">

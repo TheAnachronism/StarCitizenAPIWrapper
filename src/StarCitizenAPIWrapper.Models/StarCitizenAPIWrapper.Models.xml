@@ -25,124 +25,112 @@
             Custom attribute to mark a <see cref="T:System.DateTime"/> property to be a time stamp in the json data.
             </summary>
         </member>
-        <member name="T:StarCitizenAPIWrapper.Models.Organization.Implementations.StarCitizenOrganization">
+        <member name="T:StarCitizenAPIWrapper.Models.Organization.Members.StarCitizenOrganizationMember">
             <summary>
-            The default implementation of <see cref="T:StarCitizenAPIWrapper.Models.Organization.IOrganization"/>.
+            Interface for organization member info from the API.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Implementations.StarCitizenOrganization.Archetype">
-            <inheritdoc />
+        <member name="P:StarCitizenAPIWrapper.Models.Organization.Members.StarCitizenOrganizationMember.Display">
+            <summary>
+            Display name of this organization member.
+            </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Implementations.StarCitizenOrganization.Banner">
-            <inheritdoc />
+        <member name="P:StarCitizenAPIWrapper.Models.Organization.Members.StarCitizenOrganizationMember.Handle">
+            <summary>
+            Handle of this organization member.
+            </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Implementations.StarCitizenOrganization.Commitment">
-            <inheritdoc />
+        <member name="P:StarCitizenAPIWrapper.Models.Organization.Members.StarCitizenOrganizationMember.Image">
+            <summary>
+            Image URL of this organization member.
+            </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Implementations.StarCitizenOrganization.Focus">
-            <inheritdoc />
+        <member name="P:StarCitizenAPIWrapper.Models.Organization.Members.StarCitizenOrganizationMember.Rank">
+            <summary>
+            Rank of this member in the organization
+            </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Implementations.StarCitizenOrganization.Headline">
-            <inheritdoc />
+        <member name="P:StarCitizenAPIWrapper.Models.Organization.Members.StarCitizenOrganizationMember.Stars">
+            <summary>
+            Amount of stars this member has.
+            </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Implementations.StarCitizenOrganization.Href">
-            <inheritdoc />
+        <member name="P:StarCitizenAPIWrapper.Models.Organization.Members.StarCitizenOrganizationMember.Roles">
+            <summary>
+            Roles this member has.
+            </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Implementations.StarCitizenOrganization.Language">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Implementations.StarCitizenOrganization.Logo">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Implementations.StarCitizenOrganization.Members">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Implementations.StarCitizenOrganization.Name">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Implementations.StarCitizenOrganization.Recruiting">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Implementations.StarCitizenOrganization.RolePlaying">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Implementations.StarCitizenOrganization.SID">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Implementations.StarCitizenOrganization.Url">
-            <inheritdoc />
-        </member>
-        <member name="T:StarCitizenAPIWrapper.Models.Organization.IOrganization">
+        <member name="T:StarCitizenAPIWrapper.Models.Organization.StarCitizenOrganization">
             <summary>
             Interface for organization info from the API.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.IOrganization.Archetype">
+        <member name="P:StarCitizenAPIWrapper.Models.Organization.StarCitizenOrganization.Archetype">
             <summary>
             The type of this organization.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.IOrganization.Banner">
+        <member name="P:StarCitizenAPIWrapper.Models.Organization.StarCitizenOrganization.Banner">
             <summary>
             The banner url of this organization.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.IOrganization.Commitment">
+        <member name="P:StarCitizenAPIWrapper.Models.Organization.StarCitizenOrganization.Commitment">
             <summary>
             The required commitment of this organization.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.IOrganization.Focus">
+        <member name="P:StarCitizenAPIWrapper.Models.Organization.StarCitizenOrganization.Focus">
             <summary>
             The focus information of this organization.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.IOrganization.Headline">
+        <member name="P:StarCitizenAPIWrapper.Models.Organization.StarCitizenOrganization.Headline">
             <summary>
             The headline information of this organization.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.IOrganization.Href">
+        <member name="P:StarCitizenAPIWrapper.Models.Organization.StarCitizenOrganization.Href">
             <summary>
             The link to this organization.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.IOrganization.Language">
+        <member name="P:StarCitizenAPIWrapper.Models.Organization.StarCitizenOrganization.Language">
             <summary>
             The main language of this organization.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.IOrganization.Logo">
+        <member name="P:StarCitizenAPIWrapper.Models.Organization.StarCitizenOrganization.Logo">
             <summary>
             The url of the logo of this organization.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.IOrganization.Members">
+        <member name="P:StarCitizenAPIWrapper.Models.Organization.StarCitizenOrganization.Members">
             <summary>
             The amount of members this organization has.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.IOrganization.Name">
+        <member name="P:StarCitizenAPIWrapper.Models.Organization.StarCitizenOrganization.Name">
             <summary>
             The name of this organization.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.IOrganization.Recruiting">
+        <member name="P:StarCitizenAPIWrapper.Models.Organization.StarCitizenOrganization.Recruiting">
             <summary>
             Indicates if this organization is currently recruiting.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.IOrganization.RolePlaying">
+        <member name="P:StarCitizenAPIWrapper.Models.Organization.StarCitizenOrganization.RolePlaying">
             <summary>
             Indicates if this organization is role playing or not.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.IOrganization.SID">
+        <member name="P:StarCitizenAPIWrapper.Models.Organization.StarCitizenOrganization.SID">
             <summary>
             The SID of this organization.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.IOrganization.Url">
+        <member name="P:StarCitizenAPIWrapper.Models.Organization.StarCitizenOrganization.Url">
             <summary>
             The url of this organization page.
             </summary>
@@ -180,64 +168,6 @@
         <member name="T:StarCitizenAPIWrapper.Models.Organization.Archetypes">
             <summary>
             The different types of organizations
-            </summary>
-        </member>
-        <member name="T:StarCitizenAPIWrapper.Models.Organization.Members.Implementations.StarCitizenOrganizationMember">
-            <summary>
-            The default implementation of a <see cref="T:StarCitizenAPIWrapper.Models.Organization.Members.IOrganizationMember"/>.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Members.Implementations.StarCitizenOrganizationMember.Display">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Members.Implementations.StarCitizenOrganizationMember.Handle">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Members.Implementations.StarCitizenOrganizationMember.Image">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Members.Implementations.StarCitizenOrganizationMember.Rank">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Members.Implementations.StarCitizenOrganizationMember.Stars">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Members.Implementations.StarCitizenOrganizationMember.Roles">
-            <inheritdoc />
-        </member>
-        <member name="T:StarCitizenAPIWrapper.Models.Organization.Members.IOrganizationMember">
-            <summary>
-            Interface for organization member info from the API.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Members.IOrganizationMember.Display">
-            <summary>
-            Display name of this organization member.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Members.IOrganizationMember.Handle">
-            <summary>
-            Handle of this organization member.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Members.IOrganizationMember.Image">
-            <summary>
-            Image URL of this organization member.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Members.IOrganizationMember.Rank">
-            <summary>
-            Rank of this member in the organization
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Members.IOrganizationMember.Stars">
-            <summary>
-            Amount of stars this member has.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Members.IOrganizationMember.Roles">
-            <summary>
-            Roles this member has.
             </summary>
         </member>
         <member name="T:StarCitizenAPIWrapper.Models.RoadMap.RoadMap">

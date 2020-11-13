@@ -3,31 +3,31 @@
     /// <summary>
     /// Interface for organization member info from the API.
     /// </summary>
-    public interface IOrganizationMember
+    public class StarCitizenOrganizationMember
     {
         /// <summary>
         /// Display name of this organization member.
         /// </summary>
-        string Display { get; set; }
+        public string Display { get; set; }
         /// <summary>
         /// Handle of this organization member.
         /// </summary>
-        string Handle { get; set; }
+        public string Handle { get; set; }
         /// <summary>
         /// Image URL of this organization member.
         /// </summary>
-        string Image { get; set; }
+        public string Image { get; set; }
         /// <summary>
         /// Rank of this member in the organization
         /// </summary>
-        string Rank { get; set; }
+        public string Rank { get; set; }
         /// <summary>
         /// Amount of stars this member has.
         /// </summary>
-        int Stars { get; set; }
+        public int Stars { get; set; }
         /// <summary>
         /// Roles this member has.
         /// </summary>
-        string[] Roles { get; set; }
+        public string[] Roles { get; set; }
     }
 }

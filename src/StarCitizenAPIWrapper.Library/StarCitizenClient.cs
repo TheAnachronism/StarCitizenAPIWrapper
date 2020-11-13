@@ -7,9 +7,7 @@ using Newtonsoft.Json.Linq;
 using StarCitizenAPIWrapper.Library.Helpers;
 using StarCitizenAPIWrapper.Library.Services;
 using StarCitizenAPIWrapper.Models.Organization;
-using StarCitizenAPIWrapper.Models.Organization.Implementations;
 using StarCitizenAPIWrapper.Models.Organization.Members;
-using StarCitizenAPIWrapper.Models.Organization.Members.Implementations;
 using StarCitizenAPIWrapper.Models.RoadMap;
 using StarCitizenAPIWrapper.Models.Ships;
 using StarCitizenAPIWrapper.Models.Ships.Compiled;
@@ -46,13 +44,13 @@ namespace StarCitizenAPIWrapper.Library
         /// Sends an API request for organization information.
         /// </summary>
         /// <param name="sid">The SID of the organization</param>
-        public Task<IOrganization> GetOrganization(string sid);
+        public Task<StarCitizenOrganization> GetOrganization(string sid);
 
         /// <summary>
         /// Sends an API request for members of an organization.
         /// </summary>
         /// <param name="sid">The SID of the organization.</param>
-        public Task<List<IOrganizationMember>> GetOrganizationMembers(string sid);
+        public Task<List<StarCitizenOrganizationMember>> GetOrganizationMembers(string sid);
 
         /// <summary>
         /// Sends an API request for current existing versions.
@@ -119,7 +117,7 @@ namespace StarCitizenAPIWrapper.Library
 
     }
 
-    class StarCitizenClient : IStarCitizenClient
+    internal class StarCitizenClient : IStarCitizenClient
     {
         #region private fields
         private readonly IHttpClientService _httpService;
@@ -163,7 +161,7 @@ namespace StarCitizenAPIWrapper.Library
             return user;
         }
 
-        public async Task<IOrganization> GetOrganization(string sid)
+        public async Task<StarCitizenOrganization> GetOrganization(string sid)
         {
             var requestUrl = string.Format(_config.ApiRequestUrl, _config.ApiKey, $"organization/{sid}");
             var content = await _httpService.Get(requestUrl);
@@ -173,7 +171,7 @@ namespace StarCitizenAPIWrapper.Library
             var customBehaviour = new Dictionary<string, Func<JToken, object>>
             {
                 {
-                    nameof(IOrganization.Archetype), delegate(JToken currentValue)
+                    nameof(StarCitizenOrganization.Archetype), delegate(JToken currentValue)
                     {
                         if (!Enum.TryParse(currentValue?.ToString(), out Archetypes type))
                             return Archetypes.Undefined;
@@ -182,7 +180,7 @@ namespace StarCitizenAPIWrapper.Library
                     }
                 },
                 {
-                    nameof(IOrganization.Focus), delegate
+                    nameof(StarCitizenOrganization.Focus), delegate
                     {
                         var focus = new Focus();
                         var primary = data?["focus"]?["primary"];
@@ -201,7 +199,7 @@ namespace StarCitizenAPIWrapper.Library
                     }
                 },
                 {
-                    nameof(IOrganization.Headline), delegate
+                    nameof(StarCitizenOrganization.Headline), delegate
                     {
                         var headlineInfo = data?["headline"];
                         var html = headlineInfo?["html"]?.ToString();
@@ -218,7 +216,7 @@ namespace StarCitizenAPIWrapper.Library
             return org;
         }
 
-        public async Task<List<IOrganizationMember>> GetOrganizationMembers(string sid)
+        public async Task<List<StarCitizenOrganizationMember>> GetOrganizationMembers(string sid)
         {
             var requestUrl = string.Format(_config.ApiLiveRequestUrl, _config.ApiKey, $"organization_members/{sid}");
             var content = await _httpService.Get(requestUrl);
@@ -228,7 +226,7 @@ namespace StarCitizenAPIWrapper.Library
             var customParseBehaviour = new Dictionary<string, Func<JToken, object>>
             {
                 {
-                    nameof(IOrganizationMember.Roles), delegate(JToken currentValue)
+                    nameof(StarCitizenOrganizationMember.Roles), delegate(JToken currentValue)
                     {
                         var roles = currentValue as JArray;
                         return roles?.Select(x => x.ToString()).ToArray();
@@ -242,7 +240,7 @@ namespace StarCitizenAPIWrapper.Library
             return memberJsonArray!
                 .Select(memberJson =>
                     GenericJsonParser.ParseJsonIntoNewInstanceOfGivenType<StarCitizenOrganizationMember>(memberJson,
-                        customParseBehaviour)).Cast<IOrganizationMember>().ToList();
+                        customParseBehaviour)).ToList();
         }
 
         public async Task<IVersion> GetVersions()

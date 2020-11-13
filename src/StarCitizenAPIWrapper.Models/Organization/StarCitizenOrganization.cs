@@ -5,67 +5,67 @@ namespace StarCitizenAPIWrapper.Models.Organization
     /// <summary>
     /// Interface for organization info from the API.
     /// </summary>
-    public interface IOrganization
+    public class StarCitizenOrganization
     {
         /// <summary>
         /// The type of this organization.
         /// </summary>
-        Archetypes Archetype { get; set; }
+        public Archetypes Archetype { get; set; }
         /// <summary>
         /// The banner url of this organization.
         /// </summary>
-        string Banner { get; set; }
+        public string Banner { get; set; }
         /// <summary>
         /// The required commitment of this organization.
         /// </summary>
-        string Commitment { get; set; }
+        public string Commitment { get; set; }
         /// <summary>
         /// The focus information of this organization.
         /// </summary>
-        Focus Focus { get; set; }
+        public Focus Focus { get; set; }
         /// <summary>
         /// The headline information of this organization.
         /// </summary>
-        (string html, string plaintext) Headline { get; set; }
+        public (string html, string plaintext) Headline { get; set; }
         /// <summary>
         /// The link to this organization.
         /// </summary>
-        string Href { get; set; }
+        public string Href { get; set; }
         /// <summary>
         /// The main language of this organization.
         /// </summary>
         [ApiName("lang")]
-        string Language { get; set; }
+        public string Language { get; set; }
         /// <summary>
         /// The url of the logo of this organization.
         /// </summary>
-        string Logo { get; set; }
+        public string Logo { get; set; }
         /// <summary>
         /// The amount of members this organization has.
         /// </summary>
-        int Members { get; set; }
+        public int Members { get; set; }
         /// <summary>
         /// The name of this organization.
         /// </summary>
-        string Name { get; set; }
+        public string Name { get; set; }
         /// <summary>
         /// Indicates if this organization is currently recruiting.
         /// </summary>
-        bool Recruiting { get; set; }
+        public bool Recruiting { get; set; }
         /// <summary>
         /// Indicates if this organization is role playing or not.
         /// </summary>
-        bool RolePlaying { get; set; }
+        public bool RolePlaying { get; set; }
         /// <summary>
         /// The SID of this organization.
         /// </summary>
-        string SID { get; set; }
+        public string SID { get; set; }
         /// <summary>
         /// The url of this organization page.
         /// </summary>
-        string Url { get; set; }
+        public string Url { get; set; }
     }
-    
+
     /// <summary>
     /// Helper struct to contain information about the focus of an org.
     /// </summary>

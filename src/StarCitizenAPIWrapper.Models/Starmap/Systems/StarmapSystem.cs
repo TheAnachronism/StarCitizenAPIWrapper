@@ -1,13 +1,13 @@
 ﻿using System;
-using StarCitizenAPIWrapper.Models.Attributes;
 using System.Collections.Generic;
+using StarCitizenAPIWrapper.Models.Attributes;
 
 namespace StarCitizenAPIWrapper.Models.Starmap.Systems
 {
     /// <summary>
     /// The information about a starmap system from RSI.
     /// </summary>
-    public interface IStarmapSystem
+    public class StarmapSystem 
     {
         /// <summary>
         /// The different affiliations of this system.
@@ -81,7 +81,7 @@ namespace StarCitizenAPIWrapper.Models.Starmap.Systems
         /// <summary>
         /// The last time this system was modified.
         /// </summary>
-        [ApiName("time_modified")]
+        [ApiName("time_modified")]  
         public DateTime TimeModified { get; set; }
         /// <summary>
         /// The system type.

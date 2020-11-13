@@ -10,176 +10,145 @@ namespace StarCitizenAPIWrapper.Models.Ships
     /// <summary>
     /// Interface for the information about a ship.
     /// </summary>
-    public interface IShip
+    public class StarCitizenShip
     {
         /// <summary>
         /// The after burner speed of this ship.
         /// </summary>
         [ApiName("afterburner_speed")]
-        int AfterburnerSpeed { get; set; }
-
+        public int AfterburnerSpeed { get; set; }
         /// <summary>
         /// The beam of this ship.
         /// </summary>
-        double Beam { get; set; }
-
+        public double Beam { get; set; }
         /// <summary>
         /// The cargo capacity of this ship.
         /// </summary>
-        int CargoCapacity { get; set; }
-
+        public int CargoCapacity { get; set; }
         /// <summary>
         /// The id of the chassis of this ship.
         /// </summary>
         [ApiName("chassis_id")]
-        int ChassisId { get; set; }
-
+        public int ChassisId { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        List<KeyValuePair<ShipCompiledClasses, List<KeyValuePair<string, RsiShipComponent>>>> Compiled { get; set; }
-
+        public List<KeyValuePair<ShipCompiledClasses, List<KeyValuePair<string, RsiShipComponent>>>> Compiled { get; set; }
         /// <summary>
         /// The description of this ship.
         /// </summary>
-        string Description { get; set; }
-
+        public string Description { get; set; }
         /// <summary>
         /// The focus of this ship.
         /// </summary>
-        string Focus { get; set; }
-
+        public string Focus { get; set; }
         /// <summary>
         /// The height of this ship.
         /// </summary>
-        double Height { get; set; }
-
+        public double Height { get; set; }
         /// <summary>
         /// The id of this ship on the API database.
         /// </summary>
-        int Id { get; set; }
-
+        public int Id { get; set; }
         /// <summary>
         /// The length of this ship.
         /// </summary>
-        double Length { get; set; }
-
+        public double Length { get; set; }
         /// <summary>
         /// The manufacturer of this ship.
         /// </summary>
-        ShipManufacturer Manufacturer { get; set; }
-
+        public ShipManufacturer Manufacturer { get; set; }
         /// <summary>
         /// The id of the manufacturer of this ship.
         /// </summary>
-        [ApiName("manufacturer_id")]
-        int ManufacturerId { get; set; }
-
+        public int ManufacturerId { get; set; }
         /// <summary>
         /// The mass of this ship.
         /// </summary>
-        int Mass { get; set; }
-
+        public int Mass { get; set; }
         /// <summary>
         /// The maximal amount of crew members for this ship.
         /// </summary>
         [ApiName("max_crew")]
-        int MaxCrew { get; set; }
-
+        public int MaxCrew { get; set; }
         /// <summary>
         /// Array of urls of images for this ship.
         /// </summary>
-        ApiMedia[] Media { get; set; }
-
+        public ApiMedia[] Media { get; set; }
         /// <summary>
         /// The minimal amount of crew members for this ship.
         /// </summary>
         [ApiName("min_crew")]
-        int MinCrew { get; set; }
-
+        public int MinCrew { get; set; }
         /// <summary>
         /// The name of this ship.
         /// </summary>
-        string Name { get; set; }
-
+        public string Name { get; set; }
         /// <summary>
         /// The maximal amount of pitch this ship has.
         /// </summary>
         [ApiName("pitch_max")]
-        double PitchMax { get; set; }
-
+        public double PitchMax { get; set; }
         /// <summary>
         /// The price of this ship.
         /// </summary>
-        double Price { get; set; }
-
+        public double Price { get; set; }
         /// <summary>
         /// The production note of this ship.
         /// </summary>
         [ApiName("production_note")]
-        string ProductionNote { get; set; }
-
+        public string ProductionNote { get; set; }
         /// <summary>
         /// The current status of the production of this ship.
         /// </summary>
         [ApiName("production_status")]
-        ProductionStatusTypes ProductionStatus { get; set; }
-
+        public ProductionStatusTypes ProductionStatus { get; set; }
         /// <summary>
         /// The maximal amount of roll this ship has.
         /// </summary>
         [ApiName("roll_max")]
-        double RollMax { get; set; }
-
+        public double RollMax { get; set; }
         /// <summary>
         /// The scm speed of this ship.
         /// </summary>
         [ApiName("scm_speed")]
-        int ScmSpeed { get; set; }
-
+        public int ScmSpeed { get; set; }
         /// <summary>
         /// The size of this ship.
         /// </summary>
-        ShipSizes Size { get; set; }
-
+        public ShipSizes Size { get; set; }
         /// <summary>
         /// The last time this ship was modified.
         /// </summary>
-        DateTime TimeModified { get; set; }
-
+        public DateTime TimeModified { get; set; }
         /// <summary>
         /// The type of this ship.
         /// </summary>
-        ShipTypes Type { get; set; }
-
+        public ShipTypes Type { get; set; }
         /// <summary>
         /// The url of this ship on the RSI website.
         /// </summary>
-        string Url { get; set; }
-
+        public string Url { get; set; }
         /// <summary>
         /// The acceleration on the x-axis of this ship.
         /// </summary>
         [ApiName("xaxis_acceleration")]
-        double XAxisAcceleration { get; set; }
-
+        public double XAxisAcceleration { get; set; }
         /// <summary>
         /// The maximal amount of yaw of this ship.
         /// </summary>
         [ApiName("yaw_max")]
-        double YawMax { get; set; }
-
+        public double YawMax { get; set; }
         /// <summary>
         /// The acceleration on the y-axis of this ship.
         /// </summary>
         [ApiName("yaxis_acceleration")]
-        double YAxisAcceleration { get; set; }
-
+        public double YAxisAcceleration { get; set; }
         /// <summary>
         /// The acceleration on the z-axis of this ship.
         /// </summary>
         [ApiName("zaxis_acceleration")]
-        double ZAxisAcceleration { get; set; }
+        public double ZAxisAcceleration { get; set; }
     }
 
     #region Helper enums
@@ -241,5 +210,4 @@ namespace StarCitizenAPIWrapper.Models.Ships
     }
 
     #endregion
-
 }

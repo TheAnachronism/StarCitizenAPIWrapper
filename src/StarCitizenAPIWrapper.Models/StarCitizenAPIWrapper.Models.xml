@@ -25,124 +25,112 @@
             Custom attribute to mark a <see cref="T:System.DateTime"/> property to be a time stamp in the json data.
             </summary>
         </member>
-        <member name="T:StarCitizenAPIWrapper.Models.Organization.Implementations.StarCitizenOrganization">
+        <member name="T:StarCitizenAPIWrapper.Models.Organization.Members.StarCitizenOrganizationMember">
             <summary>
-            The default implementation of <see cref="T:StarCitizenAPIWrapper.Models.Organization.IOrganization"/>.
+            Interface for organization member info from the API.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Implementations.StarCitizenOrganization.Archetype">
-            <inheritdoc />
+        <member name="P:StarCitizenAPIWrapper.Models.Organization.Members.StarCitizenOrganizationMember.Display">
+            <summary>
+            Display name of this organization member.
+            </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Implementations.StarCitizenOrganization.Banner">
-            <inheritdoc />
+        <member name="P:StarCitizenAPIWrapper.Models.Organization.Members.StarCitizenOrganizationMember.Handle">
+            <summary>
+            Handle of this organization member.
+            </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Implementations.StarCitizenOrganization.Commitment">
-            <inheritdoc />
+        <member name="P:StarCitizenAPIWrapper.Models.Organization.Members.StarCitizenOrganizationMember.Image">
+            <summary>
+            Image URL of this organization member.
+            </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Implementations.StarCitizenOrganization.Focus">
-            <inheritdoc />
+        <member name="P:StarCitizenAPIWrapper.Models.Organization.Members.StarCitizenOrganizationMember.Rank">
+            <summary>
+            Rank of this member in the organization
+            </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Implementations.StarCitizenOrganization.Headline">
-            <inheritdoc />
+        <member name="P:StarCitizenAPIWrapper.Models.Organization.Members.StarCitizenOrganizationMember.Stars">
+            <summary>
+            Amount of stars this member has.
+            </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Implementations.StarCitizenOrganization.Href">
-            <inheritdoc />
+        <member name="P:StarCitizenAPIWrapper.Models.Organization.Members.StarCitizenOrganizationMember.Roles">
+            <summary>
+            Roles this member has.
+            </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Implementations.StarCitizenOrganization.Language">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Implementations.StarCitizenOrganization.Logo">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Implementations.StarCitizenOrganization.Members">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Implementations.StarCitizenOrganization.Name">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Implementations.StarCitizenOrganization.Recruiting">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Implementations.StarCitizenOrganization.RolePlaying">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Implementations.StarCitizenOrganization.SID">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Implementations.StarCitizenOrganization.Url">
-            <inheritdoc />
-        </member>
-        <member name="T:StarCitizenAPIWrapper.Models.Organization.IOrganization">
+        <member name="T:StarCitizenAPIWrapper.Models.Organization.StarCitizenOrganization">
             <summary>
             Interface for organization info from the API.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.IOrganization.Archetype">
+        <member name="P:StarCitizenAPIWrapper.Models.Organization.StarCitizenOrganization.Archetype">
             <summary>
             The type of this organization.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.IOrganization.Banner">
+        <member name="P:StarCitizenAPIWrapper.Models.Organization.StarCitizenOrganization.Banner">
             <summary>
             The banner url of this organization.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.IOrganization.Commitment">
+        <member name="P:StarCitizenAPIWrapper.Models.Organization.StarCitizenOrganization.Commitment">
             <summary>
             The required commitment of this organization.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.IOrganization.Focus">
+        <member name="P:StarCitizenAPIWrapper.Models.Organization.StarCitizenOrganization.Focus">
             <summary>
             The focus information of this organization.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.IOrganization.Headline">
+        <member name="P:StarCitizenAPIWrapper.Models.Organization.StarCitizenOrganization.Headline">
             <summary>
             The headline information of this organization.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.IOrganization.Href">
+        <member name="P:StarCitizenAPIWrapper.Models.Organization.StarCitizenOrganization.Href">
             <summary>
             The link to this organization.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.IOrganization.Language">
+        <member name="P:StarCitizenAPIWrapper.Models.Organization.StarCitizenOrganization.Language">
             <summary>
             The main language of this organization.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.IOrganization.Logo">
+        <member name="P:StarCitizenAPIWrapper.Models.Organization.StarCitizenOrganization.Logo">
             <summary>
             The url of the logo of this organization.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.IOrganization.Members">
+        <member name="P:StarCitizenAPIWrapper.Models.Organization.StarCitizenOrganization.Members">
             <summary>
             The amount of members this organization has.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.IOrganization.Name">
+        <member name="P:StarCitizenAPIWrapper.Models.Organization.StarCitizenOrganization.Name">
             <summary>
             The name of this organization.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.IOrganization.Recruiting">
+        <member name="P:StarCitizenAPIWrapper.Models.Organization.StarCitizenOrganization.Recruiting">
             <summary>
             Indicates if this organization is currently recruiting.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.IOrganization.RolePlaying">
+        <member name="P:StarCitizenAPIWrapper.Models.Organization.StarCitizenOrganization.RolePlaying">
             <summary>
             Indicates if this organization is role playing or not.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.IOrganization.SID">
+        <member name="P:StarCitizenAPIWrapper.Models.Organization.StarCitizenOrganization.SID">
             <summary>
             The SID of this organization.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.IOrganization.Url">
+        <member name="P:StarCitizenAPIWrapper.Models.Organization.StarCitizenOrganization.Url">
             <summary>
             The url of this organization page.
             </summary>
@@ -180,64 +168,6 @@
         <member name="T:StarCitizenAPIWrapper.Models.Organization.Archetypes">
             <summary>
             The different types of organizations
-            </summary>
-        </member>
-        <member name="T:StarCitizenAPIWrapper.Models.Organization.Members.Implementations.StarCitizenOrganizationMember">
-            <summary>
-            The default implementation of a <see cref="T:StarCitizenAPIWrapper.Models.Organization.Members.IOrganizationMember"/>.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Members.Implementations.StarCitizenOrganizationMember.Display">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Members.Implementations.StarCitizenOrganizationMember.Handle">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Members.Implementations.StarCitizenOrganizationMember.Image">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Members.Implementations.StarCitizenOrganizationMember.Rank">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Members.Implementations.StarCitizenOrganizationMember.Stars">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Members.Implementations.StarCitizenOrganizationMember.Roles">
-            <inheritdoc />
-        </member>
-        <member name="T:StarCitizenAPIWrapper.Models.Organization.Members.IOrganizationMember">
-            <summary>
-            Interface for organization member info from the API.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Members.IOrganizationMember.Display">
-            <summary>
-            Display name of this organization member.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Members.IOrganizationMember.Handle">
-            <summary>
-            Handle of this organization member.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Members.IOrganizationMember.Image">
-            <summary>
-            Image URL of this organization member.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Members.IOrganizationMember.Rank">
-            <summary>
-            Rank of this member in the organization
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Members.IOrganizationMember.Stars">
-            <summary>
-            Amount of stars this member has.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Organization.Members.IOrganizationMember.Roles">
-            <summary>
-            Roles this member has.
             </summary>
         </member>
         <member name="T:StarCitizenAPIWrapper.Models.RoadMap.RoadMap">
@@ -460,284 +390,6 @@
             The type of this component.
             </summary>
         </member>
-        <member name="T:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip">
-            <summary>
-            The default implementation of <see cref="T:StarCitizenAPIWrapper.Models.Ships.IShip"/>.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.AfterburnerSpeed">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.Beam">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.CargoCapacity">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.ChassisId">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.Compiled">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.Description">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.Focus">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.Height">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.Id">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.Length">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.Manufacturer">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.ManufacturerId">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.Mass">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.MaxCrew">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.Media">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.MinCrew">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.Name">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.PitchMax">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.Price">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.ProductionNote">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.ProductionStatus">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.RollMax">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.ScmSpeed">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.Size">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.TimeModified">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.Type">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.Url">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.XAxisAcceleration">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.YawMax">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.YAxisAcceleration">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.Implementations.StarCitizenShip.ZAxisAcceleration">
-            <inheritdoc />
-        </member>
-        <member name="T:StarCitizenAPIWrapper.Models.Ships.IShip">
-            <summary>
-            Interface for the information about a ship.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.AfterburnerSpeed">
-            <summary>
-            The after burner speed of this ship.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.Beam">
-            <summary>
-            The beam of this ship.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.CargoCapacity">
-            <summary>
-            The cargo capacity of this ship.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.ChassisId">
-            <summary>
-            The id of the chassis of this ship.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.Compiled">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.Description">
-            <summary>
-            The description of this ship.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.Focus">
-            <summary>
-            The focus of this ship.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.Height">
-            <summary>
-            The height of this ship.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.Id">
-            <summary>
-            The id of this ship on the API database.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.Length">
-            <summary>
-            The length of this ship.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.Manufacturer">
-            <summary>
-            The manufacturer of this ship.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.ManufacturerId">
-            <summary>
-            The id of the manufacturer of this ship.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.Mass">
-            <summary>
-            The mass of this ship.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.MaxCrew">
-            <summary>
-            The maximal amount of crew members for this ship.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.Media">
-            <summary>
-            Array of urls of images for this ship.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.MinCrew">
-            <summary>
-            The minimal amount of crew members for this ship.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.Name">
-            <summary>
-            The name of this ship.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.PitchMax">
-            <summary>
-            The maximal amount of pitch this ship has.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.Price">
-            <summary>
-            The price of this ship.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.ProductionNote">
-            <summary>
-            The production note of this ship.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.ProductionStatus">
-            <summary>
-            The current status of the production of this ship.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.RollMax">
-            <summary>
-            The maximal amount of roll this ship has.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.ScmSpeed">
-            <summary>
-            The scm speed of this ship.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.Size">
-            <summary>
-            The size of this ship.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.TimeModified">
-            <summary>
-            The last time this ship was modified.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.Type">
-            <summary>
-            The type of this ship.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.Url">
-            <summary>
-            The url of this ship on the RSI website.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.XAxisAcceleration">
-            <summary>
-            The acceleration on the x-axis of this ship.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.YawMax">
-            <summary>
-            The maximal amount of yaw of this ship.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.YAxisAcceleration">
-            <summary>
-            The acceleration on the y-axis of this ship.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Ships.IShip.ZAxisAcceleration">
-            <summary>
-            The acceleration on the z-axis of this ship.
-            </summary>
-        </member>
-        <member name="T:StarCitizenAPIWrapper.Models.Ships.ProductionStatusTypes">
-            <summary>
-            The different types of production status for ships.
-            </summary>
-        </member>
-        <member name="T:StarCitizenAPIWrapper.Models.Ships.ShipSizes">
-            <summary>
-            The different sizes of ships.
-            </summary>
-        </member>
-        <member name="T:StarCitizenAPIWrapper.Models.Ships.ShipTypes">
-            <summary>
-            The different types of ships.
-            </summary>
-        </member>
-        <member name="T:StarCitizenAPIWrapper.Models.Ships.ShipCompiledClasses">
-            <summary>
-            The different classes of components of a ship.
-            </summary>
-        </member>
         <member name="T:StarCitizenAPIWrapper.Models.Ships.Manufacturer.ShipManufacturer">
             <summary>
             The information about a manufacturer of a ship.
@@ -811,6 +463,186 @@
         <member name="P:StarCitizenAPIWrapper.Models.Ships.Media.ShipMediaImage.Width">
             <summary>
             The width of this image.
+            </summary>
+        </member>
+        <member name="T:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip">
+            <summary>
+            Interface for the information about a ship.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.AfterburnerSpeed">
+            <summary>
+            The after burner speed of this ship.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.Beam">
+            <summary>
+            The beam of this ship.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.CargoCapacity">
+            <summary>
+            The cargo capacity of this ship.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.ChassisId">
+            <summary>
+            The id of the chassis of this ship.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.Compiled">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.Description">
+            <summary>
+            The description of this ship.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.Focus">
+            <summary>
+            The focus of this ship.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.Height">
+            <summary>
+            The height of this ship.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.Id">
+            <summary>
+            The id of this ship on the API database.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.Length">
+            <summary>
+            The length of this ship.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.Manufacturer">
+            <summary>
+            The manufacturer of this ship.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.ManufacturerId">
+            <summary>
+            The id of the manufacturer of this ship.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.Mass">
+            <summary>
+            The mass of this ship.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.MaxCrew">
+            <summary>
+            The maximal amount of crew members for this ship.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.Media">
+            <summary>
+            Array of urls of images for this ship.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.MinCrew">
+            <summary>
+            The minimal amount of crew members for this ship.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.Name">
+            <summary>
+            The name of this ship.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.PitchMax">
+            <summary>
+            The maximal amount of pitch this ship has.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.Price">
+            <summary>
+            The price of this ship.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.ProductionNote">
+            <summary>
+            The production note of this ship.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.ProductionStatus">
+            <summary>
+            The current status of the production of this ship.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.RollMax">
+            <summary>
+            The maximal amount of roll this ship has.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.ScmSpeed">
+            <summary>
+            The scm speed of this ship.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.Size">
+            <summary>
+            The size of this ship.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.TimeModified">
+            <summary>
+            The last time this ship was modified.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.Type">
+            <summary>
+            The type of this ship.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.Url">
+            <summary>
+            The url of this ship on the RSI website.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.XAxisAcceleration">
+            <summary>
+            The acceleration on the x-axis of this ship.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.YawMax">
+            <summary>
+            The maximal amount of yaw of this ship.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.YAxisAcceleration">
+            <summary>
+            The acceleration on the y-axis of this ship.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.Ships.StarCitizenShip.ZAxisAcceleration">
+            <summary>
+            The acceleration on the z-axis of this ship.
+            </summary>
+        </member>
+        <member name="T:StarCitizenAPIWrapper.Models.Ships.ProductionStatusTypes">
+            <summary>
+            The different types of production status for ships.
+            </summary>
+        </member>
+        <member name="T:StarCitizenAPIWrapper.Models.Ships.ShipSizes">
+            <summary>
+            The different sizes of ships.
+            </summary>
+        </member>
+        <member name="T:StarCitizenAPIWrapper.Models.Ships.ShipTypes">
+            <summary>
+            The different types of ships.
+            </summary>
+        </member>
+        <member name="T:StarCitizenAPIWrapper.Models.Ships.ShipCompiledClasses">
+            <summary>
+            The different classes of components of a ship.
             </summary>
         </member>
         <member name="T:StarCitizenAPIWrapper.Models.Starmap.Affiliations.StarCitizenAffiliation">
@@ -1143,146 +975,92 @@
             The name of this species.
             </summary>
         </member>
-        <member name="T:StarCitizenAPIWrapper.Models.Starmap.Systems.Implementations.StarmapSystem">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.Implementations.StarmapSystem.Affiliations">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.Implementations.StarmapSystem.AggregatedDanger">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.Implementations.StarmapSystem.AggregatedEconomy">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.Implementations.StarmapSystem.AggregatedPopulation">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.Implementations.StarmapSystem.AggregatedSize">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.Implementations.StarmapSystem.Code">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.Implementations.StarmapSystem.Description">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.Implementations.StarmapSystem.Id">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.Implementations.StarmapSystem.InfoUrl">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.Implementations.StarmapSystem.Name">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.Implementations.StarmapSystem.PositionX">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.Implementations.StarmapSystem.PositionY">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.Implementations.StarmapSystem.PositionZ">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.Implementations.StarmapSystem.Status">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.Implementations.StarmapSystem.Thumbnail">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.Implementations.StarmapSystem.TimeModified">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.Implementations.StarmapSystem.Type">
-            <inheritdoc />
-        </member>
-        <member name="T:StarCitizenAPIWrapper.Models.Starmap.Systems.IStarmapSystem">
+        <member name="T:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystem">
             <summary>
             The information about a starmap system from RSI.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.IStarmapSystem.Affiliations">
+        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystem.Affiliations">
             <summary>
             The different affiliations of this system.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.IStarmapSystem.AggregatedDanger">
+        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystem.AggregatedDanger">
             <summary>
             The aggregated danger of this system.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.IStarmapSystem.AggregatedEconomy">
+        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystem.AggregatedEconomy">
             <summary>
             The aggregated economy of this system.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.IStarmapSystem.AggregatedPopulation">
+        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystem.AggregatedPopulation">
             <summary>
             The aggregated population of this system.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.IStarmapSystem.AggregatedSize">
+        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystem.AggregatedSize">
             <summary>
             The aggregated size of this system.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.IStarmapSystem.Code">
+        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystem.Code">
             <summary>
             The code of this system.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.IStarmapSystem.Description">
+        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystem.Description">
             <summary>
             The description of this system.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.IStarmapSystem.Id">
+        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystem.Id">
             <summary>
             The id of this system.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.IStarmapSystem.InfoUrl">
+        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystem.InfoUrl">
             <summary>
             The info url of this system.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.IStarmapSystem.Name">
+        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystem.Name">
             <summary>
             The name of this system.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.IStarmapSystem.PositionX">
+        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystem.PositionX">
             <summary>
             The x position of this system in the verse.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.IStarmapSystem.PositionY">
+        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystem.PositionY">
             <summary>
             The y position of this system in the verse.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.IStarmapSystem.PositionZ">
+        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystem.PositionZ">
             <summary>
             The z position of this system in the verse.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.IStarmapSystem.Status">
+        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystem.Status">
             <summary>
             The status of this system.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.IStarmapSystem.Thumbnail">
+        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystem.Thumbnail">
             <summary>
             The thumbnail information of this system.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.IStarmapSystem.TimeModified">
+        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystem.TimeModified">
             <summary>
             The last time this system was modified.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.IStarmapSystem.Type">
+        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystem.Type">
             <summary>
             The system type.
             </summary>
@@ -1341,57 +1119,6 @@
             <summary>
             The habitable zone on the outer layer.
             </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystemDetail.Affiliations">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystemDetail.AggregatedDanger">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystemDetail.AggregatedEconomy">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystemDetail.AggregatedPopulation">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystemDetail.AggregatedSize">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystemDetail.Code">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystemDetail.Description">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystemDetail.Id">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystemDetail.InfoUrl">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystemDetail.Name">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystemDetail.PositionX">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystemDetail.PositionY">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystemDetail.PositionZ">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystemDetail.Status">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystemDetail.Thumbnail">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystemDetail.TimeModified">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystemDetail.Type">
-            <inheritdoc />
         </member>
         <member name="T:StarCitizenAPIWrapper.Models.Starmap.Systems.StarmapSystemThumbnail">
             <summary>
@@ -1528,170 +1255,102 @@
             Current funds gathered.
             </summary>
         </member>
-        <member name="T:StarCitizenAPIWrapper.Models.User.Implementations.StarCitizenUser">
-            <summary>
-            Implementation of a default <see cref="T:StarCitizenAPIWrapper.Models.User.IUser"/>.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.User.Implementations.StarCitizenUser.Profile">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.User.Implementations.StarCitizenUser.Organization">
-            <inheritdoc />
-        </member>
-        <member name="T:StarCitizenAPIWrapper.Models.User.Implementations.StarCitizenUserProfile">
-            <summary>
-            The default implementation of <see cref="T:StarCitizenAPIWrapper.Models.User.IUserProfile"/>.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.User.Implementations.StarCitizenUserProfile.Badge">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.User.Implementations.StarCitizenUserProfile.BadgeImage">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.User.Implementations.StarCitizenUserProfile.Display">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.User.Implementations.StarCitizenUserProfile.Enlisted">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.User.Implementations.StarCitizenUserProfile.Fluency">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.User.Implementations.StarCitizenUserProfile.Handle">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.User.Implementations.StarCitizenUserProfile.Id">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.User.Implementations.StarCitizenUserProfile.Image">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.User.Implementations.StarCitizenUserProfile.Page">
-            <inheritdoc />
-        </member>
-        <member name="T:StarCitizenAPIWrapper.Models.User.Implementations.UserOrganizationInfo">
-            <summary>
-            The default implementation of <see cref="T:StarCitizenAPIWrapper.Models.User.IUserOrganizationInfo"/>.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.User.Implementations.UserOrganizationInfo.Image">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.User.Implementations.UserOrganizationInfo.Name">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.User.Implementations.UserOrganizationInfo.Rank">
-            <inheritdoc />
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.User.Implementations.UserOrganizationInfo.Sid">
-            <inheritdoc />
-        </member>
-        <member name="T:StarCitizenAPIWrapper.Models.User.IUser">
+        <member name="T:StarCitizenAPIWrapper.Models.User.StarCitizenUser">
             <summary>
             Interface for user info from the API.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.User.IUser.Profile">
+        <member name="P:StarCitizenAPIWrapper.Models.User.StarCitizenUser.Profile">
             <summary>
             The profile information about this user.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.User.IUser.Organization">
+        <member name="P:StarCitizenAPIWrapper.Models.User.StarCitizenUser.Organization">
             <summary>
-            The current <see cref="T:StarCitizenAPIWrapper.Models.User.Implementations.UserOrganizationInfo"/> of the organization this user is currently member of.
+            The current <see cref="T:StarCitizenAPIWrapper.Models.User.UserOrganizationInfo"/> of the organization this user is currently member of.
             </summary>
         </member>
-        <member name="T:StarCitizenAPIWrapper.Models.User.IUserOrganizationInfo">
-            <summary>
-            Interface for the information about a organization a user is currently member of.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.User.IUserOrganizationInfo.Image">
-            <summary>
-            The image URL of the organization image.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.User.IUserOrganizationInfo.Name">
-            <summary>
-            The name of the organization.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.User.IUserOrganizationInfo.Rank">
-            <summary>
-            The rank of the user inside this organization.
-            </summary>
-        </member>
-        <member name="P:StarCitizenAPIWrapper.Models.User.IUserOrganizationInfo.Sid">
-            <summary>
-            The SID of the organization.
-            </summary>
-        </member>
-        <member name="T:StarCitizenAPIWrapper.Models.User.IUserProfile">
+        <member name="T:StarCitizenAPIWrapper.Models.User.StarCitizenUserProfile">
             <summary>
             Information about the user profile.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.User.IUserProfile.Badge">
+        <member name="P:StarCitizenAPIWrapper.Models.User.StarCitizenUserProfile.Badge">
             <summary>
             The current badge of the user.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.User.IUserProfile.BadgeImage">
+        <member name="P:StarCitizenAPIWrapper.Models.User.StarCitizenUserProfile.BadgeImage">
             <summary>
-            The url to the image of the <see cref="P:StarCitizenAPIWrapper.Models.User.IUserProfile.Badge"/>.
+            The url to the image of the <see cref="P:StarCitizenAPIWrapper.Models.User.StarCitizenUserProfile.Badge"/>.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.User.IUserProfile.Display">
+        <member name="P:StarCitizenAPIWrapper.Models.User.StarCitizenUserProfile.Display">
             <summary>
             The display name of this user.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.User.IUserProfile.Enlisted">
+        <member name="P:StarCitizenAPIWrapper.Models.User.StarCitizenUserProfile.Enlisted">
             <summary>
             The datetime when this user enlisted.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.User.IUserProfile.Fluency">
+        <member name="P:StarCitizenAPIWrapper.Models.User.StarCitizenUserProfile.Fluency">
             <summary>
             The languages this user is fluent in.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.User.IUserProfile.Handle">
+        <member name="P:StarCitizenAPIWrapper.Models.User.StarCitizenUserProfile.Handle">
             <summary>
             The handle of this user.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.User.IUserProfile.Id">
+        <member name="P:StarCitizenAPIWrapper.Models.User.StarCitizenUserProfile.Id">
             <summary>
             The id of this user.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.User.IUserProfile.Image">
+        <member name="P:StarCitizenAPIWrapper.Models.User.StarCitizenUserProfile.Image">
             <summary>
             The url of the image of this user.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.User.IUserProfile.Page">
+        <member name="P:StarCitizenAPIWrapper.Models.User.StarCitizenUserProfile.Page">
             <summary>
             The information about the user page.
             </summary>
         </member>
-        <member name="T:StarCitizenAPIWrapper.Models.Version.Implementations.StarCitizenVersion">
+        <member name="T:StarCitizenAPIWrapper.Models.User.UserOrganizationInfo">
             <summary>
-            The default implementation of <see cref="T:StarCitizenAPIWrapper.Models.Version.IVersion"/>.
+            Interface for the information about a organization a user is currently member of.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Version.Implementations.StarCitizenVersion.Versions">
-            <inheritdoc />
+        <member name="P:StarCitizenAPIWrapper.Models.User.UserOrganizationInfo.Image">
+            <summary>
+            The image URL of the organization image.
+            </summary>
         </member>
-        <member name="T:StarCitizenAPIWrapper.Models.Version.IVersion">
+        <member name="P:StarCitizenAPIWrapper.Models.User.UserOrganizationInfo.Name">
+            <summary>
+            The name of the organization.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.User.UserOrganizationInfo.Rank">
+            <summary>
+            The rank of the user inside this organization.
+            </summary>
+        </member>
+        <member name="P:StarCitizenAPIWrapper.Models.User.UserOrganizationInfo.Sid">
+            <summary>
+            The SID of the organization.
+            </summary>
+        </member>
+        <member name="T:StarCitizenAPIWrapper.Models.Version.StarCitizenVersion">
             <summary>
             Interface for the api information about versions.
             </summary>
         </member>
-        <member name="P:StarCitizenAPIWrapper.Models.Version.IVersion.Versions">
+        <member name="P:StarCitizenAPIWrapper.Models.Version.StarCitizenVersion.Versions">
             <summary>
             Array of all existing versions
             </summary>

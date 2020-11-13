@@ -7,13 +7,10 @@ using Newtonsoft.Json.Linq;
 using StarCitizenAPIWrapper.Library.Helpers;
 using StarCitizenAPIWrapper.Library.Services;
 using StarCitizenAPIWrapper.Models.Organization;
-using StarCitizenAPIWrapper.Models.Organization.Implementations;
 using StarCitizenAPIWrapper.Models.Organization.Members;
-using StarCitizenAPIWrapper.Models.Organization.Members.Implementations;
 using StarCitizenAPIWrapper.Models.RoadMap;
 using StarCitizenAPIWrapper.Models.Ships;
 using StarCitizenAPIWrapper.Models.Ships.Compiled;
-using StarCitizenAPIWrapper.Models.Ships.Implementations;
 using StarCitizenAPIWrapper.Models.Ships.Manufacturer;
 using StarCitizenAPIWrapper.Models.Ships.Media;
 using StarCitizenAPIWrapper.Models.Starmap.Affiliations;
@@ -21,13 +18,10 @@ using StarCitizenAPIWrapper.Models.Starmap.Object;
 using StarCitizenAPIWrapper.Models.Starmap.Search;
 using StarCitizenAPIWrapper.Models.Starmap.Species;
 using StarCitizenAPIWrapper.Models.Starmap.Systems;
-using StarCitizenAPIWrapper.Models.Starmap.Systems.Implementations;
 using StarCitizenAPIWrapper.Models.Starmap.Tunnels;
 using StarCitizenAPIWrapper.Models.Stats;
 using StarCitizenAPIWrapper.Models.User;
-using StarCitizenAPIWrapper.Models.User.Implementations;
 using StarCitizenAPIWrapper.Models.Version;
-using StarCitizenAPIWrapper.Models.Version.Implementations;
 
 namespace StarCitizenAPIWrapper.Library
 {
@@ -40,31 +34,31 @@ namespace StarCitizenAPIWrapper.Library
         /// Sends an API request for user information.
         /// </summary>
         /// <param name="handle">The handle of the requested user.</param>
-        /// <returns>An instance of <see cref="IUser"/> containing the information about the requested user.</returns>
-        public Task<IUser> GetUser(string handle);
+        /// <returns>An instance of <see cref="StarCitizenUser"/> containing the information about the requested user.</returns>
+        public Task<StarCitizenUser> GetUser(string handle);
 
         /// <summary>
         /// Sends an API request for organization information.
         /// </summary>
         /// <param name="sid">The SID of the organization</param>
-        public Task<IOrganization> GetOrganization(string sid);
+        public Task<StarCitizenOrganization> GetOrganization(string sid);
 
         /// <summary>
         /// Sends an API request for members of an organization.
         /// </summary>
         /// <param name="sid">The SID of the organization.</param>
-        public Task<List<IOrganizationMember>> GetOrganizationMembers(string sid);
+        public Task<List<StarCitizenOrganizationMember>> GetOrganizationMembers(string sid);
 
         /// <summary>
         /// Sends an API request for current existing versions.
         /// </summary>
         /// <returns></returns>
-        public Task<IVersion> GetVersions();
+        public Task<StarCitizenVersion> GetVersions();
 
         /// <summary>
         /// Sends an API request for the ships within the specified parameters.
         /// </summary>
-        public Task<List<IShip>> GetShips(ShipRequest request);
+        public Task<List<StarCitizenShip>> GetShips(ShipRequest request);
 
         /// <summary>
         /// Sends an API request for the roadmap of the given type.
@@ -80,12 +74,12 @@ namespace StarCitizenAPIWrapper.Library
         /// <summary>
         /// Sends an API request for all star systems;
         /// </summary>
-        public Task<List<IStarmapSystem>> GetAllSystems();
+        public Task<List<StarmapSystem>> GetAllSystems();
 
         /// <summary>
         /// Sends an API request for the star system information with the given name.
         /// </summary>
-        public Task<List<IStarmapSystem>> GetSystem(string name);
+        public Task<List<StarmapSystem>> GetSystem(string name);
 
         /// <summary>
         /// Gets the tunnel with the given id or all tunnels.
@@ -120,7 +114,7 @@ namespace StarCitizenAPIWrapper.Library
 
     }
 
-    class StarCitizenClient : IStarCitizenClient
+    internal class StarCitizenClient : IStarCitizenClient
     {
         #region private fields
         private readonly IHttpClientService _httpService;
@@ -146,7 +140,7 @@ namespace StarCitizenAPIWrapper.Library
         #endregion
 
         #region public methods
-        public async Task<IUser> GetUser(string handle)
+        public async Task<StarCitizenUser> GetUser(string handle)
         {
             var requestUrl = string.Format(_config.ApiRequestUrl, _config.ApiKey, $"user/{handle}");
             var content = await _httpService.Get(requestUrl);
@@ -164,7 +158,7 @@ namespace StarCitizenAPIWrapper.Library
             return user;
         }
 
-        public async Task<IOrganization> GetOrganization(string sid)
+        public async Task<StarCitizenOrganization> GetOrganization(string sid)
         {
             var requestUrl = string.Format(_config.ApiRequestUrl, _config.ApiKey, $"organization/{sid}");
             var content = await _httpService.Get(requestUrl);
@@ -174,7 +168,7 @@ namespace StarCitizenAPIWrapper.Library
             var customBehaviour = new Dictionary<string, Func<JToken, object>>
             {
                 {
-                    nameof(IOrganization.Archetype), delegate(JToken currentValue)
+                    nameof(StarCitizenOrganization.Archetype), delegate(JToken currentValue)
                     {
                         if (!Enum.TryParse(currentValue?.ToString(), out Archetypes type))
                             return Archetypes.Undefined;
@@ -183,7 +177,7 @@ namespace StarCitizenAPIWrapper.Library
                     }
                 },
                 {
-                    nameof(IOrganization.Focus), delegate
+                    nameof(StarCitizenOrganization.Focus), delegate
                     {
                         var focus = new Focus();
                         var primary = data?["focus"]?["primary"];
@@ -202,7 +196,7 @@ namespace StarCitizenAPIWrapper.Library
                     }
                 },
                 {
-                    nameof(IOrganization.Headline), delegate
+                    nameof(StarCitizenOrganization.Headline), delegate
                     {
                         var headlineInfo = data?["headline"];
                         var html = headlineInfo?["html"]?.ToString();
@@ -219,7 +213,7 @@ namespace StarCitizenAPIWrapper.Library
             return org;
         }
 
-        public async Task<List<IOrganizationMember>> GetOrganizationMembers(string sid)
+        public async Task<List<StarCitizenOrganizationMember>> GetOrganizationMembers(string sid)
         {
             var requestUrl = string.Format(_config.ApiLiveRequestUrl, _config.ApiKey, $"organization_members/{sid}");
             var content = await _httpService.Get(requestUrl);
@@ -229,7 +223,7 @@ namespace StarCitizenAPIWrapper.Library
             var customParseBehaviour = new Dictionary<string, Func<JToken, object>>
             {
                 {
-                    nameof(IOrganizationMember.Roles), delegate(JToken currentValue)
+                    nameof(StarCitizenOrganizationMember.Roles), delegate(JToken currentValue)
                     {
                         var roles = currentValue as JArray;
                         return roles?.Select(x => x.ToString()).ToArray();
@@ -243,10 +237,10 @@ namespace StarCitizenAPIWrapper.Library
             return memberJsonArray!
                 .Select(memberJson =>
                     GenericJsonParser.ParseJsonIntoNewInstanceOfGivenType<StarCitizenOrganizationMember>(memberJson,
-                        customParseBehaviour)).Cast<IOrganizationMember>().ToList();
+                        customParseBehaviour)).ToList();
         }
 
-        public async Task<IVersion> GetVersions()
+        public async Task<StarCitizenVersion> GetVersions()
         {
             var requestUrl = string.Format(_config.ApiRequestUrl, _config.ApiKey, "versions");
             var content = await _httpService.Get(requestUrl);
@@ -258,7 +252,7 @@ namespace StarCitizenAPIWrapper.Library
             return version;
         }
 
-        public async Task<List<IShip>> GetShips(ShipRequest request)
+        public async Task<List<StarCitizenShip>> GetShips(ShipRequest request)
         {
             var requestUrl = string.Format(_config.ApiCacheRequestUrl, _config.ApiKey, $"/ships?{string.Join("&", request.RequestParameters)}");
             var content = await _httpService.Get(requestUrl);
@@ -268,23 +262,23 @@ namespace StarCitizenAPIWrapper.Library
             var customParseBehaviour = new Dictionary<string, Func<JToken, object>>
             {
                 {
-                    nameof(IShip.Media),
+                    nameof(StarCitizenShip.Media),
                     currentValue => (currentValue as JArray)!.Select(ParseShipMedia).ToArray()
                 },
                 {
-                    nameof(IShip.Size), currentValue =>
+                    nameof(StarCitizenShip.Size), currentValue =>
                         Enum.TryParse(currentValue?.ToString(), true, out ShipSizes sizeResult)
                             ? sizeResult
                             : ShipSizes.Undefined
                 },
                 {
-                    nameof(IShip.Type), currentValue =>
+                    nameof(StarCitizenShip.Type), currentValue =>
                         Enum.TryParse(currentValue?.ToString(), true, out ShipTypes typeResult)
                             ? typeResult
                             : ShipTypes.Undefined
                 },
                 {
-                    nameof(IShip.ProductionStatus), delegate(JToken currentValue)
+                    nameof(StarCitizenShip.ProductionStatus), delegate(JToken currentValue)
                     {
                         var valueToParse = currentValue?.ToString().Replace("-", "");
 
@@ -296,14 +290,14 @@ namespace StarCitizenAPIWrapper.Library
                     }
                 },
                 {
-                    nameof(IShip.Compiled), ParseShipCompiled
+                    nameof(StarCitizenShip.Compiled), ParseShipCompiled
                 },
                 {
-                    nameof(IShip.Manufacturer), ParseManufacturer
+                    nameof(StarCitizenShip.Manufacturer), ParseManufacturer
                 }
             };
 
-            var ships = new List<IShip>();
+            var ships = new List<StarCitizenShip>();
 
             var shipsAsJson = data as JArray;
 
@@ -361,13 +355,13 @@ namespace StarCitizenAPIWrapper.Library
             return stats;
         }
 
-        public async Task<List<IStarmapSystem>> GetAllSystems()
+        public async Task<List<StarmapSystem>> GetAllSystems()
         {
             var requestUrl = string.Format(_config.ApiRequestUrl, _config.ApiKey, "starmap/systems");
             return await GetSystems(requestUrl);
         }
 
-        public async Task<List<IStarmapSystem>> GetSystem(string name)
+        public async Task<List<StarmapSystem>> GetSystem(string name)
         {
             var requestUrl = string.Format(_config.ApiRequestUrl, _config.ApiKey, $"starmap/systems?name={name}");
             return await GetSystems(requestUrl);
@@ -506,11 +500,11 @@ namespace StarCitizenAPIWrapper.Library
 
 
         /// <summary>
-        /// Parses the given profile json into a <see cref="IUserProfile"/>.
+        /// Parses the given profile json into a <see cref="StarCitizenUserProfile"/>.
         /// </summary>
         /// <param name="profileData">The <see cref="JToken"/> containing the profile information.</param>
-        /// <returns>A new instance of <see cref="IUserProfile"/> containing the parsed information.</returns>
-        private static IUserProfile ParseUserProfile(JToken profileData)
+        /// <returns>A new instance of <see cref="StarCitizenUserProfile"/> containing the parsed information.</returns>
+        private static StarCitizenUserProfile ParseUserProfile(JToken profileData)
         {
             var customBehaviour = new Dictionary<string, Func<JToken, object>>
             {
@@ -538,9 +532,9 @@ namespace StarCitizenAPIWrapper.Library
         }
 
         /// <summary>
-        /// Parses the given organization information of a user into a <see cref="IUserOrganizationInfo"/>.
+        /// Parses the given organization information of a user into a <see cref="UserOrganizationInfo"/>.
         /// </summary>
-        private static IUserOrganizationInfo ParseUserOrganizationInfo(JToken userOrganizationData)
+        private static UserOrganizationInfo ParseUserOrganizationInfo(JToken userOrganizationData)
         {
             return GenericJsonParser.ParseJsonIntoNewInstanceOfGivenType<UserOrganizationInfo>(userOrganizationData,
                 new Dictionary<string, Func<JToken, object>>());
@@ -694,12 +688,12 @@ namespace StarCitizenAPIWrapper.Library
         /// <summary>
         /// Sends an API request for the star system information with the given name.
         /// </summary>
-        private async Task<List<IStarmapSystem>> GetSystems(string requestUrl)
+        private async Task<List<StarmapSystem>> GetSystems(string requestUrl)
         {
             var content = await _httpService.Get(requestUrl);
             var data = JObject.Parse(content)["data"];
 
-            var systemList = new List<IStarmapSystem>();
+            var systemList = new List<StarmapSystem>();
 
             if (data?.Type == JTokenType.Array)
             {
@@ -707,7 +701,7 @@ namespace StarCitizenAPIWrapper.Library
             }
             else
             {
-                systemList.Add((StarmapSystem) ParseStarmapSystem<StarmapSystem>(data));
+                systemList.Add(ParseStarmapSystem<StarmapSystem>(data));
             }
 
             return systemList;
@@ -716,12 +710,12 @@ namespace StarCitizenAPIWrapper.Library
         /// <summary>
         /// Parses the given json data into a <see cref="StarmapSystem"/>.
         /// </summary>
-        private static IStarmapSystem ParseStarmapSystem<T>(JToken starmapSystemJson) where T : IStarmapSystem
+        private static StarmapSystem ParseStarmapSystem<T>(JToken starmapSystemJson) where T : StarmapSystem
         {
             var customParseBehaviour = new Dictionary<string, Func<JToken, object>>
             {
                 {
-                    nameof(IStarmapSystem.Affiliations), delegate(JToken currentValue)
+                    nameof(StarmapSystem.Affiliations), delegate(JToken currentValue)
                     {
                         var affiliationList = new List<StarmapSystemAffiliation>();
 
@@ -746,7 +740,7 @@ namespace StarCitizenAPIWrapper.Library
                     }
                 },
                 {
-                    nameof(IStarmapSystem.Thumbnail), delegate(JToken currentValue)
+                    nameof(StarmapSystem.Thumbnail), delegate(JToken currentValue)
                     {
                         var thumbnail = new StarmapSystemThumbnail
                         {

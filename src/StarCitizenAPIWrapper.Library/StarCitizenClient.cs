@@ -24,7 +24,6 @@ using StarCitizenAPIWrapper.Models.Starmap.Tunnels;
 using StarCitizenAPIWrapper.Models.Stats;
 using StarCitizenAPIWrapper.Models.User;
 using StarCitizenAPIWrapper.Models.Version;
-using StarCitizenAPIWrapper.Models.Version.Implementations;
 
 namespace StarCitizenAPIWrapper.Library
 {
@@ -56,7 +55,7 @@ namespace StarCitizenAPIWrapper.Library
         /// Sends an API request for current existing versions.
         /// </summary>
         /// <returns></returns>
-        public Task<IVersion> GetVersions();
+        public Task<StarCitizenVersion> GetVersions();
 
         /// <summary>
         /// Sends an API request for the ships within the specified parameters.
@@ -243,7 +242,7 @@ namespace StarCitizenAPIWrapper.Library
                         customParseBehaviour)).ToList();
         }
 
-        public async Task<IVersion> GetVersions()
+        public async Task<StarCitizenVersion> GetVersions()
         {
             var requestUrl = string.Format(_config.ApiRequestUrl, _config.ApiKey, "versions");
             var content = await _httpService.Get(requestUrl);

@@ -1,3 +1,6 @@
+# This project has been moved to a new repository for a rework:
+https://github.com/TheAnachronism/StarCitizen-API-Wrapper
+
 # StarCitizenAPIWrapper
 C# Wrapper around the StarCitizen API at\
 https://starcitizen-api.com/
